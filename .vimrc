@@ -17,6 +17,7 @@ set smarttab
 " set expandtab				" to enter spaces when tab is pressed
 set wildmode=longest,list,full		"autocompletion in command line (tab)
 set ignorecase				"to ignore case when searching
+set foldmethod=marker
 
 
 syntax on
