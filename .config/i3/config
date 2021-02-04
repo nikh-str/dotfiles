@@ -18,8 +18,6 @@ for_window [class="GParted"] floating enable border normal
 for_window [window_role="pop-up"] floating enable 
 for_window [window_role="task_dialog"] floating enable 
 
-
-
 ##--Dropdown/Scratchpadwindows--##
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] move scratchpad
@@ -27,9 +25,7 @@ for_window [instance="dropdown"] border pixel 5
 bindsym $mod+i  [instance="dropdown"] scratchpad show, resize set 800 600, move position center
 exec --no-startup-id kitty --name=dropdown 
 
-#wallpaper (mine)
-# exec --no-startup-id feh --bg-scale ~/Pictures/devian/wallhaven-forest_1920x1080.png
-# exec --no-startup-id ~/.fehbg
+
 exec_always --no-startup-id wal -R
 # exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
 
@@ -54,7 +50,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id setxkbmap us,gr -option 'grp:alt_shift_toggle'
 
 bindsym Print --release exec --no-startup-id  i3-scrot -sc
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -wc
+bindsym $mod+Print --release exec --no-startup-id i3-scrot 
 bindsym $mod+Shift+Print exec --no-startup-id i3-scrot -dc
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Mod1+p exec --no-startup-id  pamac-manager
@@ -62,7 +58,6 @@ bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F4 exec --no-startup-id element-desktop
 
 
-# Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym F12 exec --no-startup-id "changeVolume 5%+ unmute"
 bindsym F11 exec --no-startup-id "changeVolume 5%- unmute"
@@ -71,39 +66,12 @@ bindsym Ctrl+Down exec --no-startup-id "mpc play"
 bindsym Ctrl+Up exec --no-startup-id "mpc pause"
 bindsym Ctrl+Right exec --no-startup-id "mpc next"
 bindsym Ctrl+Left exec --no-startup-id "mpc prev"
-# F11 / F12 other option /XF86AudioRaiseVolume  XF86AudioLowerVolume
-# bindsym F12 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-# bindsym F11 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-# Screen brightness controls
+bindsym Ctrl+Shift+p exec --no-startup-id "~/.config/polybar/launch.sh; exec notify-send 'restart polybar'"
+bindsym Ctrl+Shift+a exec --no-startup-id "album-notify"
+
+
  # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
  # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
-
-
-# set $mode_power [l]ogoff | [s]hutdown
-# mode "$mode_power" {
-#         bindsym l exec i3-msg exit
-#         bindsym s exec systemctl poweroff
-#         bindsym Return mode "default"
-#         bindsym Escape mode "default"
-# }
-set $Locker i3exit lock && sleep 1
-
-# set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-# mode "$mode_system" {
-#     bindsym l exec --no-startup-id $Locker, mode "default"
-#     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-#     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-#     bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-#     bindsym r exec --no-startup-id systemctl reboot, mode "default"
-#     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
-
-#     # back to normal: Enter or Escape
-#     bindsym Return mode "default"
-#     bindsym Escape mode "default"
-# }
-# bindsym --release XF86PowerOff mode "$mode_system"
 
 bindsym --release XF86PowerOff exec ~/.local/bin/powermenu
 bindsym $mod+Escape exec ~/.local/bin/powermenu
@@ -123,11 +91,9 @@ bindsym Mod1+Return 		exec kitty
 
 bindsym $mod+q 			kill
 bindsym $mod+b			exec --no-startup-id firefox
-bindsym $mod+n			exec --no-startup-id kitty -e ncmpcpp
+bindsym $mod+n			exec  kitty --title music -e ncmpcpp 
 # bindsym $mod+d 			exec dmenu_run
 bindsym $mod+d exec rofi -lines 3  -padding 18 -width 30 -location 0 -show drun -sidebar-mode -columns 1 -font 'Noto Sans 14' -show-icons true 
-
-# bindsym $mod+o exec rofi -lines 12 -padding 18 -width 60 -location 0 -show file-browser -sidebar-mode -columns 2 -font 'Noto Sans 12' -show-icons true 
 
 # change focus
 bindsym $mod+$left 		focus left
@@ -226,54 +192,18 @@ bindsym $mod+Shift+r		 restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
-# mode "resize" {
-#         # These bindings trigger as soon as you enter the resize mode
 
-#         # Pressing left will shrink the window’s width.
-#         # Pressing right will grow the window’s width.
-#         # Pressing up will shrink the window’s height.
-#         # Pressing down will grow the window’s height.
-#         bindsym $left 		resize shrink width 10 px or 10 ppt
-#         bindsym $down 		resize grow height 10 px or 10 ppt
-#         bindsym $up   		resize shrink height 10 px or 10 ppt
-#         bindsym $right		resize grow width 10 px or 10 ppt
-
-#         # same bindings, but for the arrow keys
-#         bindsym Left 		resize shrink width 10 px or 10 ppt
-#         bindsym Down 		resize grow height 10 px or 10 ppt
-#         bindsym Up   		resize shrink height 10 px or 10 ppt
-#         bindsym Right		resize grow width 10 px or 10 ppt
-
-#         # back to normal: Enter or Escape or $mod+r
-#         bindsym Return		 mode "default"
-#         bindsym Escape		 mode "default"
-#         bindsym $mod+r		 mode "default"
-# }
-
-# bindsym $mod+r			 mode "resize"
-
-bindsym $mod+ctrl+h    resize shrink width 5 px or 5 ppt
-bindsym $mod+ctrl+j    resize shrink height 5 px or 5 ppt
-bindsym $mod+ctrl+k    resize grow height 5 px or 5 ppt
-bindsym $mod+ctrl+l    resize grow width 5 px or 5 ppt
+bindsym $mod+ctrl+h    resize shrink width 15 px or 15 ppt
+bindsym $mod+ctrl+j    resize shrink height 15 px or 15 ppt
+bindsym $mod+ctrl+k    resize grow height 15 px or 15 ppt
+bindsym $mod+ctrl+l    resize grow width 15 px or 15 ppt
 
 # Assign discords to workspace 3
-assign [class="discord"] 3
+assign [class="discord"] 4
+assign [class="firefox"] 2
+assign [title="music"] 6
 
 
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# # Configure (mine) to hide and enable with mod4...
-# bar {
-#         status_command i3status
-# 	tray_ouput primary
-# 	height 30
-# 	colors {
-# 	 	background #242424
-# 	}
-# }
 
 # enable transparency
 exec_always --no-startup-id picom -bc
@@ -283,13 +213,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #********************************************************************************
 #	Appearance
 #********************************************************************************
-# Theme colors
-# # class                   border  backgr. text    indic.   child_border
-# client.focused          #4c7899 #285577 #ffffff #2e9ef4   #900000
-# client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-# client.unfocused        #333333 #222222 #888888 #292d2e   #b3812d
-# client.urgent           #2f343a #900000 #ffffff #900000   #900000
-# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
 
 # Necessary for i3-gaps to work properly (pixel can be any value)
 for_window [class="^.*"] border pixel 3
