@@ -43,7 +43,7 @@ font pango: Noto Sans 10
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 #-------------- Autostart applications------------------------------
-exec --no-startup-id volumeicon
+# exec --no-startup-id volumeicon
 exec --no-startup-id clipit
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
@@ -64,6 +64,13 @@ bindsym $mod+F4 exec --no-startup-id element-desktop
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
+bindsym F12 exec --no-startup-id "changeVolume 5%+ unmute"
+bindsym F11 exec --no-startup-id "changeVolume 5%- unmute"
+bindsym F10 exec --no-startup-id "changeVolume mute"
+bindsym Ctrl+Down exec --no-startup-id "mpc play"
+bindsym Ctrl+Up exec --no-startup-id "mpc pause"
+bindsym Ctrl+Right exec --no-startup-id "mpc next"
+bindsym Ctrl+Left exec --no-startup-id "mpc prev"
 # F11 / F12 other option /XF86AudioRaiseVolume  XF86AudioLowerVolume
 # bindsym F12 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 # bindsym F11 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
