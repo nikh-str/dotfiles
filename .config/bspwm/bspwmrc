@@ -1,0 +1,35 @@
+#! /bin/sh
+
+# If refreshing bspwm, remove all previous rules to prevent doubling up.
+bspc rule -r "*"
+
+#Autostart
+# # udiskie -nc 
+pgrep -x sxhkd > /devc/null || sxhkd &
+$HOME/.config/polybar/launch.sh &
+
+#Workspaces
+bspc monitor -d I II III IV V VI VII 
+
+bspc config border_width         3
+bspc config window_gap          25
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      false
+bspc config focus_follows_pointer true
+bspc config top_padding 24	# top_padding  set equal to polybar's height
+
+bspc config focused_border_color "#680402"
+
+
+bspc rule -a Gimp-2.10 desktop='^8' state=floating follow=on
+bspc rule -a GParted state=floating
+bspc rule -a firefox desktop='^2'
+bspc rule -a Element desktop='^4'
+bspc rule -a discord desktop='^4'
+bspc rule -a Zathura state=tiled
+bspc rule -a mplayer2 state=floating
+bspc rule -a Pamac-manager state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
