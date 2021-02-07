@@ -1,0 +1,193 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+alt + Return
+	$TERMINAL
+# dropdown term
+
+super + i
+	tdrop -ma -w 50% -y 30% -x 20% kitty
+
+
+# program launcher
+super + space
+	rofi -lines 3  -padding 18 -width 30 -location 0 -show drun -sidebar-mode -columns 1 -font 'Noto Sans 14' -show-icons true
+
+alt + p
+	pamac-manager
+
+super + {F4,F3,b}
+	{element-desktop,pcmanfm,$BROWSER}
+
+# Window switcher
+super + alt + @space
+	rofi -font "Noto Sans 14" -width 30 -lines 5 -show window 
+
+#exit prompt
+super + Escape 
+	~/.local/bin/powermenu
+@XF86PowerOff
+		~/.local/bin/powermenu
+
+super + shift + @d
+	killall dunst && notify-send 'restart dunst'
+
+ctrl + shift + @p
+ 		~/.config/polybar/launch.sh & notify-send 'restart polybar'
+
+super + shift + a
+	album-notify		
+
+# make sxhkd reload its configuration files:
+ctrl + shift + Escape
+	pkill -USR1 -x sxhkd && notify-send 'restart sxhkd'
+
+F12
+	changeVolume 5%+ umute
+F11
+	changeVolume 5%- unmute
+F10
+	changeVolume mute
+super + n
+ 	kitty --title music -e ncmpcpp 
+
+ctrl + {Down,Up,Right,Left}
+	mpc {play,pause,next,prev}
+
+#Screenshots
+Print 
+		flameshot gui
+shift + Print
+				flameshot full -c
+super + Print
+				flameshot full -p ~/Pictures/screenshots
+
+
+super {_,+ r; }c
+   rofi -lines 6  -padding 18 -width 30 -location 0 -show clipboard
+
+
+#==========================================================
+# 
+# bspwm hotkeys
+#
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# close and kill
+super + {_,shift + }w
+	bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
+
+#
+# state/flags
+#
+
+# set the window state
+# super + {t,shift + t,s,f}
+# 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# # set the node flags
+# super + ctrl + {m,x,y,z}
+# 	bspc node -g {marked,locked,sticky,private}
+
+
+super + s
+    if [ -z "$(bspc query -N -n focused.floating)" ]; then \
+        bspc node focused -t floating; \
+    else \
+        bspc node focused -t tiled; \
+    fi
+super + f
+    if [ -z "$(bspc query -N -n focused.fullscreen)" ]; then \
+        bspc node focused -t fullscreen; \
+    else \
+        bspc node focused -t tiled; \
+    fi
+
+
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous window in the current desktop
+super + {_,shift + }c
+	bspc node -f {next,prev}.local.!hidden.window
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+super + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+##
+## preselect
+##
+
+## preselect the direction
+#alt + {h,j,k,l}
+#	bspc node -p {west,south,north,east}
+
+## preselect the ratio
+#super + ctrl + {1-9}
+#	bspc node -o 0.{1-9}
+
+## cancel the preselection for the focused node
+#super + ctrl + space
+#	bspc node -p cancel
+
+## cancel the preselection for the focused desktop
+#super + ctrl + shift + space
+#	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+ctrl + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + ctrl + alt + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
