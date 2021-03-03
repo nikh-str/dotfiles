@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+# This file runs when a DM logs you into a graphical session.
+# If you use startx/xinit like a Chad, this file will also be sourced.
+
+dunst &
+wal -R & # restore wallpaper, pywal
+nm-applet &
+clipit &
+# pamac-tray &
+udiskie -ns &
+sxhkd -m 1 &		# Bind keys with sxhkd
+setxkbmap us,gr -option 'grp:alt_shift_toggle' &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+xfce4-power-manager &
+picom -bc &
+$HOME/.config/polybar/launch.sh &
+# MPD daemon start (if no other user instance exists)
+[ ! -s ~/.config/mpd/pid ] && mpd
