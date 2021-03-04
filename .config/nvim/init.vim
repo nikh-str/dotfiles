@@ -26,6 +26,7 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'morhetz/gruvbox'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'nanotech/jellybeans.vim'
 call plug#end()
 "}}}
 
@@ -66,6 +67,7 @@ autocmd BufRead,BufNewFile *.md setlocal spell!
 
 let g:slime_target="tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+let g:slime_python_ipython = 1
 
 let NERDTreeQuitOnOpen = 1 "close NERDTree window aftero opening a file from it
 
