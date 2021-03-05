@@ -30,7 +30,8 @@ mpd_port = "6600"
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = ~/Music
+# mpd_music_dir = ~/Music
+mpd_music_dir = /run/media/niki/1599-32D2
 #
 #mpd_crossfade_time = 5
 #
@@ -218,6 +219,7 @@ current_item_inactive_column_suffix = $/r$(end)
 #
 #song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
 #
+song_columns_list_format = "(25)[6]{a} (35)[4]{t} (5)[2]{l}"
 ##### various settings #####
 #
 ##
@@ -497,4 +499,5 @@ statusbar_time_color = cyan:b
 #active_window_border = red
 # execute_on_song_change= kunst --silent
 # execute_on_song_change = notify-send "♫ Now Playing" "$(mpc current)"
-execute_on_song_change = ~/.local/bin/album-notify
+# execute_on_song_change = ~/.local/bin/album-notify
+execute_on_song_change="~/.config/ncmpcpp/ncmpcpp-ueberzug/ncmpcpp_cover_art.sh"
