@@ -13,7 +13,7 @@ local colors = {
   orange = '#FF8800',
   purple = '#722132',
   magenta = '#d3869b',
-  grey = '#c0c0c0',
+  grey = '#928374',
   blue = '#569CD6',
   red = '#cc241d'
 }
@@ -82,43 +82,28 @@ gls.left[2] = {
       end
       return colors.bg
     end},
-    highlight = {colors.grey,colors.bg,'bold'},
+    highlight = {colors.fg,colors.bg,'bold'},
   },
 }
--- gls.left[3] ={
---   FileIcon = {
---     separator = ' ',
---     provider = 'FileIcon',
---     condition = buffer_not_empty,
---     highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
---   },
--- }
--- gls.left[4] = {
---   FileName = {
---     provider = {'FileSize'},
---     condition = buffer_not_empty,
---     separator = ' ',
---     separator_highlight = {colors.purple,colors.bg},
---     highlight = {colors.magenta,colors.bg}
---   }
--- }
-
-gls.left[3] = {
-  GitIcon = {
-    provider = function() return ' ' end,
+gls.left[3] ={
+  FileIcon = {
+    -- separator = ' ',
+    provider = 'FileIcon',
     condition = buffer_not_empty,
-    highlight = {colors.orange,colors.bg},
+    highlight = {colors.blue,colors.bg},
   }
 }
 gls.left[4] = {
-  GitBranch = {
-    provider = 'GitBranch',
+  FileName = {
+    provider = {'FileName'},
+    condition = buffer_not_empty,
     separator = ' ',
     separator_highlight = {colors.purple,colors.bg},
-    condition = buffer_not_empty,
-    highlight = {colors.grey,colors.bg},
+    highlight = {colors.grey,colors.bg}
   }
 }
+
+
 
 local checkwidth = function()
   local squeeze_width  = vim.fn.winwidth(0) / 2
@@ -199,14 +184,28 @@ gls.left[13] = {
     highlight = {colors.orange,colors.bg},
   }
 }
-gls.right[2]= {
-  FileFormat = {
-    provider = 'FileFormat',
-    separator = ' ',
-    separator_highlight = {colors.bg,colors.bg},
-    highlight = {colors.grey,colors.bg},
-  }
+
+gls.right[1] = {
+    ShowLspClient = {
+        provider = 'GetLspClient',
+        condition = function()
+            local tbl = {['dashboard'] = true, [' '] = true}
+            if tbl[vim.bo.filetype] then return false end
+            return true
+        end,
+        icon = ' ',
+        highlight = {colors.grey, colors.bg}
+    }
 }
+
+-- gls.right[2]= {
+--   FileFormat = {
+--     provider = 'FileFormat',  --shows "UNIX"
+--     separator = ' ',
+--     separator_highlight = {colors.bg,colors.bg},
+--     highlight = {colors.grey,colors.bg},
+--   }
+-- }
 gls.right[3] = {
   LineInfo = {
     provider = 'LineColumn',
@@ -235,7 +234,7 @@ gls.right[6] = {
     provider = 'FileTypeName',
     separator = ' ',
     separator_highlight = {colors.purple,colors.bg},
-    highlight = {colors.grey,colors.purple}
+    highlight = {colors.fg,colors.purple}
   }
 }
 
@@ -253,19 +252,7 @@ gls.short_line_right[1] = {
     provider= 'BufferIcon',
     separator = ' ',
     separator_highlight = {colors.purple,colors.bg},
-    highlight = {colors.grey,colors.purple}
+    highlight = {colors.fg,colors.purple}
   }
 }
--- function! s:my_bookmark_color() abort
---   let s:scl_guibg = matchstr(execute('hi SignColumn'), 'guibg=\zs\S*')
---   if empty(s:scl_guibg)
---     let s:scl_guibg = 'NONE'
---   endif
---   exe 'hi MyBookmarkSign guifg=' . s:scl_guibg
--- endfunction
--- call s:my_bookmark_color() " don't remove this line!
 
--- augroup UserGitSignColumnColor
---   autocmd!
---   autocmd ColorScheme * call s:my_bookmark_color()
--- augroup END

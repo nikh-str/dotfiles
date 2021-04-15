@@ -14,8 +14,10 @@ local darkforest = {
   bg = '#0e0f0e';
   bg1 = '#504945';
   bg_popup = '#1c1e1c';
-  bg_highlight  = '#0e0f0e';
-  bg_visual = '#2c6656';
+  -- bg_highlight  = '#0e0f0e';
+  bg_highlight  = '#090909';
+  -- bg_visual = '#2c6656';
+  bg_visual = '#2E3230';
 
   fg = '#e0cb70';
   fg_alt  = '#ebdbb2';
@@ -75,11 +77,11 @@ end
 
 function darkforest.load_syntax()
   local syntax = {
-    Normal = {fg = darkforest.fg,bg=darkforest.bg};
+    Normal = {fg = darkforest.fg,bg=darkforest.bg_highlight}; -- also changes buffer fill
     Terminal = {fg = darkforest.fg,bg=darkforest.bg};
     SignColumn = {fg=darkforest.fg,bg=darkforest.bg};
     FoldColumn = {fg=darkforest.fg_alt,bg=darkforest.black};
-    VertSplit = {fg=darkforest.black,bg=darkforest.bg};
+    VertSplit = {fg=darkforest.redwine,bg=darkforest.base3};
     Folded = {fg=darkforest.grey,bg=darkforest.bg_highlight};
     EndOfBuffer = {fg=darkforest.bg,bg=darkforest.none};
     IncSearch = {fg=darkforest.bg1,bg=darkforest.orange,style=darkforest.none};
@@ -103,7 +105,7 @@ function darkforest.load_syntax()
     ErrorMsg = {fg=darkforest.red,bg=darkforest.none,style='bold'};
     WarningMsg = {fg=darkforest.yellow,bg=darkforest.none,style='bold'};
     ModeMsg = {fg=darkforest.fg,bg=darkforest.none,style='bold'};
-    MatchParen = {fg=darkforest.red,bg=darkforest.none};
+    MatchParen = {style=darkforest.none,bg=darkforest.base3};
     NonText = {fg=darkforest.bg1};
     Whitespace = {fg=darkforest.base4};
     SpecialKey = {fg=darkforest.bg1};
@@ -116,14 +118,14 @@ function darkforest.load_syntax()
     Question = {fg=darkforest.yellow};
     NormalFloat = {fg=darkforest.base8,bg=darkforest.bg_highlight};
     TabLineFill = {style=darkforest.none};
-    TabLineSel = {bg=darkforest.blue};
+    TabLineSel = {bg=darkforest.cyan};
     StatusLine = {fg=darkforest.base8,bg=darkforest.base0,style=darkforest.none};
     StatusLineNC = {fg=darkforest.grey,bg=darkforest.base0,style=darkforest.none};
-    SpellBad = {fg=darkforest.red,bg=darkforest.none,style='undercurl'};
+    SpellBad = {fg=darkforest.fg,bg=darkforest.none,style='undercurl'};
     SpellCap = {fg=darkforest.blue,bg=darkforest.none,style='undercurl'};
     SpellLocal = {fg=darkforest.cyan,bg=darkforest.none,style='undercurl'};
-    SpellRare = {fg=darkforest.violet,bg=darkforest.none,style = 'undercurl'};
-    Visual = {fg=darkforest.black,bg=darkforest.bg_visual};
+    SpellRare = {fg=darkforest.fg,bg=darkforest.none,style = 'undercurl'};
+    Visual = {style=darkforest.none,bg=darkforest.bg_visual};
     VisualNOS = {fg=darkforest.black,bg=darkforest.bg_visual};
     QuickFixLine = {fg=darkforest.violet,style='bold'};
     Debug = {fg=darkforest.orange};
@@ -139,7 +141,7 @@ function darkforest.load_syntax()
     Conditional = {fg=darkforest.magenta};
     Repeat = {fg=darkforest.magenta};
     Keyword = {fg=darkforest.green};
-    Typedef = {fg=darkforest.red};
+    Typedef = {fg=darkforest.red,style='bold'};
     Exception = {fg=darkforest.red};
     Statement = {fg=darkforest.red};
     Error = {fg=darkforest.red};
@@ -147,9 +149,9 @@ function darkforest.load_syntax()
     Tag = {fg=darkforest.orange};
     Label = {fg=darkforest.orange};
     Structure = {fg=darkforest.orange};
-    Operator = {fg=darkforest.redwine};
+    Operator = {fg=darkforest.orange};
     Title = {fg=darkforest.orange,style='bold'};
-    Special = {fg=darkforest.yellow};
+    Special = {fg=darkforest.orange};
     SpecialChar = {fg=darkforest.yellow};
     Type = {fg=darkforest.teal};
     Function = {fg=darkforest.yellow};
@@ -159,7 +161,7 @@ function darkforest.load_syntax()
     Macro = {fg=darkforest.cyan};
     Identifier = {fg=darkforest.blue};
 
-    Comment = {fg=darkforest.base6};
+    Comment = {fg=darkforest.base6,style='italic'};
     SpecialComment = {fg=darkforest.grey};
     Todo = {fg=darkforest.violet};
     Delimiter = {fg=darkforest.fg};
@@ -176,7 +178,7 @@ end
 
 function darkforest.load_plugin_syntax()
   local plugin_syntax = {
-    TSFunction = {fg=darkforest.cyan};
+    TSFunction = {fg=darkforest.red,style='bold'};
     TSMethod = {fg=darkforest.cyan};
     TSKeywordFunction = {fg=darkforest.red};
     TSProperty = {fg=darkforest.yellow};
@@ -188,7 +190,7 @@ function darkforest.load_plugin_syntax()
     vimVar = {fg=darkforest.cyan};
     vimFunction = {fg=darkforest.redwine};
     vimIsCommand = {fg=darkforest.fg};
-    vimCommand = {fg=darkforest.red};
+    vimCommand = {fg=darkforest.red,style='bold'};
     vimNotFunc = {fg=darkforest.violet,style='bold'};
     vimUserFunc = {fg=darkforest.yellow,style='bold'};
     vimFuncName= {fg=darkforest.yellow,style='bold'};
@@ -257,14 +259,26 @@ function darkforest.load_plugin_syntax()
 
     NvimTreeFolderName = {fg=darkforest.magenta};
     NvimTreeRootFolder = {fg=darkforest.red,style='bold'};
-    NvimTreeSpecialFile = {fg=darkforest.fg,bg=darkforest.none,style='NONE'};
+    NvimTreeSpecialFile = {fg=darkforest.green,bg=darkforest.none,style='NONE'};
+    NvimTreeFolderIcon = {fg=darkforest.orange};
 
-    TelescopeBorder = {fg=darkforest.cyan};
+    TelescopeBorder = {fg=darkforest.magenta};
     TelescopePromptBorder = {fg=darkforest.red};
     TelescopeMatching = {fg=darkforest.teal};
     TelescopeSelection = {fg=darkforest.yellow,bg=darkforest.bg_highlight,style= 'bold'};
-    TelescopeSelectionCaret = {fg=darkforest.yellow};
+    TelescopeSelectionCaret = {fg=darkforest.orange};
     TelescopeMultiSelection = {fg=darkforest.teal};
+
+
+    VimwikiHeader1 = {fg=darkforest.orange,style='bold'};
+    VimwikiHeader2 = {fg=darkforest.red,style='bold'};
+    VimwikiLink = {fg=darkforest.blue};
+
+    texCmdEnv = {fg=darkforest.red,style='bold'};
+    texMathCmd= {fg=darkforest.violet};
+    texCmdRef = {fg=darkforest.green,style='bold'};
+    texCmdPart = {fg=darkforest.red,style='bold'};
+    texMathEnvArgName = {fg=darkforest.green};
   }
   return plugin_syntax
 end
@@ -294,6 +308,7 @@ function darkforest.colorscheme()
   end
   async_load_plugin:send()
 end
+
 darkforest.colorscheme()
 
 return darkforest
