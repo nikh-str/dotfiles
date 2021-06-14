@@ -1,6 +1,6 @@
 local awful = require("awful")
-local gears = require("gears")
-local gfs = gears.filesystem
+-- local gears = require("gears")
+-- local gfs = gears.filesystem
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
@@ -21,11 +21,11 @@ screen_width = awful.screen.focused().geometry.width
 screen_height = awful.screen.focused().geometry.height
 
 
--- bling.signal.playerctl.enable {
---     ignore = {"firefox", "chromium"},
---     backend = "playerctl_lib",
---     update_on_activity = true
--- }
+bling.signal.playerctl.enable {
+    ignore = {"firefox", "chromium"},
+    backend = "playerctl_lib",
+    update_on_activity = true
+}
 
 bling.widget.tag_preview.enable {
     show_client_content = false,
@@ -35,7 +35,7 @@ bling.widget.tag_preview.enable {
     honor_padding = true,
     honor_workarea = false
 }
-require("config.keys")
 require("config.layout")
-require("config.ruled")
+require("config.keys")
+-- require("config.ruled")
 require("config.rules")

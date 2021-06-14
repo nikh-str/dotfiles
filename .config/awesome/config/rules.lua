@@ -33,18 +33,23 @@ awful.rules.rules = {
           "Kruler",
           "MessageWin",  -- kalarm.
           "Sxiv",
-          "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+          "Tor Browser", --fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
-          "Zoom",
+          "zoom",
           "Lxappearance",
+          "Pamac-manager",
+          "KeePassXC",
           "xtightvncviewer"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
         name = {
           "Event Tester",  -- xev.
+          "Power Manager",
           "music",
+          "ranger",
+          "calendar",
           "vCoolor"
         },
         role = {
@@ -52,7 +57,11 @@ awful.rules.rules = {
           "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
-      }, properties = { floating = true , x=600, y=200}},
+      }, properties = {
+          floating = true,
+          placement = awful.placement.centered,
+        }
+    },
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
@@ -63,23 +72,20 @@ awful.rules.rules = {
       properties = { screen = 1}
     },
 
-    { rule = { class = "Pamac-manager" },
-      properties = { screen = 1, floating=true, ontop=true, x=471, y=175, width=1084, height=783 }
-    },
 
     { rule = { class = "Signal" },
-      properties = { screen = 1, tag = "4", floating=true }
+      properties = { screen = 1, tag = "", floating=true, ontop=true, switchtotag = true}
     },
 
    { rule = { class = "Element" },
-      properties = { screen = 1, tag = "4", floating=true, ontop=true, x=471, y=175, width=1084, height=783 }
+      properties = { screen = 1, tag = "", floating=true, ontop=true, x=471, y=175, width=1084, height=783, switchtotag = true }
     },
 
-   { rule = { class = "KeePassXC" },
-      properties = { screen = 1, floating=true, ontop=true, x=471, y=175, width=1084, height=783 }
-    },
+   -- { rule = { class = "KeePassXC" },
+   --    properties = { screen = 1, floating=true, ontop=true, x=471, y=175, width=1084, height=783 }
+   --  },
     -- Set Firefox to always map on the tag named "2" on screen 1.
     { rule = { class = "firefox" },
-      properties = { screen = 1, tag = "2" } },
+      properties = { screen = 1, tag = "", switchtotag = true } },
 }
 --
