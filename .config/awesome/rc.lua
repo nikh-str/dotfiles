@@ -10,6 +10,9 @@
 --   ░   ▒     ░   ░     ░   ░  ░  ░  ░ ░ ░ ▒  ░      ░      ░
 --       ░  ░    ░       ░  ░      ░      ░ ░         ░      ░  ░
 --
+-- {{{ Libraries
+local awesome, client, mouse, screen, tag = awesome, client, mouse, screen, tag
+
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
@@ -20,22 +23,25 @@ require("awful.autofocus")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+-- }}}
 
 require("config.errorhandling")
 
--- choose your theme here
+-- {{{ Theme
 local chosen_theme = "multicolor"
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
-
+---}}}
 
 require("config")
 
--- Screen Padding and Tags
+-- {{{ Tags
 screen.connect_signal("request::desktop_decoration", function(s)
 --- Each screen has its own tag table.
-awful.tag({"", "", "", "", "龎", ""}, s, awful.layout.layouts[1])
+awful.tag({ "", "", "",  "", "","龎", ""}, s, awful.layout.layouts[1])
+-- awful.util.tagnames ={ "", "", "",  "", "","龎", ""}
 end)
+---}}}
 
 require("signal")
 require("ui")
