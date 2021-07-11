@@ -152,7 +152,6 @@ return require('packer').startup(function(use)
             })
         end,
     }
-    use "oberblastmeister/neuron.nvim"
     use {'vim-pandoc/vim-pandoc'}
 
   -- Sane gx for netrw_gx bug
