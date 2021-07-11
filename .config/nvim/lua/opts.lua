@@ -11,6 +11,8 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd BufRead,BufNewFile *.md setlocal spell!  ]])
 if O.transparent_window then
   cmd "au ColorScheme * hi Normal ctermbg=none guibg=none"
+  else
+      cmd "au ColorScheme * hi Normal ctermbg=none guibg=#101111"
 end
 
 opt.ruler = false

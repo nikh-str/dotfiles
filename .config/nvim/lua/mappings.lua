@@ -4,6 +4,11 @@ vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {silent = true})
 
+--nabla
+vim.api.nvim_set_keymap('n', '<F5>', ':lua require("nabla").action()<CR>', {silent = true})
+
+-- vim.api.nvim_set_keymap('n', 'gx', ':call netrw#BrowseX(expand("<cfile>"), netrw#CheckIfRemote())<CR>', {silent=true})
+
 -- TODO fix this
 -- Terminal window navigation
 vim.cmd([[

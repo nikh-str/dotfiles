@@ -28,16 +28,16 @@ require('telescope').setup{
     file_sorter =  require'telescope.sorters'.get_fzy_file,
     file_ignore_patterns = {},
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
-    shorten_path = true,
+    path_display = {"absolute"},
     winblend = 0,
     border = {},
     borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
     color_devicons = true,
     use_less = true,
     set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
-    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+    file_previewer = require('telescope.previewers').vim_buffer_cat.new,
+    grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
+    qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
 
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker,
@@ -77,4 +77,27 @@ require('telescope').setup{
 }
 -- require('telescope').load_extension('media_files')
 
+local M = {}
+
+function M.nvim_config()
+    require('telescope.builtin').file_browser {
+        prompt_title = ' NVim Config Browse',
+        shorten_path = false,
+        cwd = '~/.config/nvim',
+        layout_strategy = 'horizontal',
+        layout_config = {preview_width = 0.65, width = .75}
+    }
+end
+
+function M.find_notes()
+    require('telescope.builtin').find_files {
+        prompt_title = ' Find Notes',
+        shorten_path = false,
+        cwd = '~/Documents/vimwiki/',
+        layout_strategy = 'horizontal',
+        layout_config = {preview_width = 0.65, width = .75}
+    }
+end
+
+return M
 

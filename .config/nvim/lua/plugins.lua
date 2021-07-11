@@ -73,8 +73,8 @@ return require('packer').startup(function(use)
         requires = {
             {'nvim-lua/popup.nvim'},
             {'nvim-lua/plenary.nvim'}},
-        config = [[require('nv-telescope')]],
-        cmd = "Telescope"
+        -- config = [[require('nv-telescope')]],
+        -- cmd = "Telescope"
     }
 
     use { "lukas-reineke/indent-blankline.nvim", }
@@ -152,5 +152,15 @@ return require('packer').startup(function(use)
             })
         end,
     }
+    use "oberblastmeister/neuron.nvim"
+    use {'vim-pandoc/vim-pandoc'}
+
+  -- Sane gx for netrw_gx bug
+  use {
+    "felipec/vim-sanegx",
+    event = "BufRead"
+  }
+  use {"iamcco/markdown-preview.nvim", run = [[sh -c 'cd app && yarn install']]}
+  use {'jbyuki/nabla.nvim'}
 
 end)

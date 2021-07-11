@@ -113,7 +113,7 @@ function darkforest.load_syntax()
     ErrorMsg = {fg=darkforest.red,bg=darkforest.none,style='bold'};
     WarningMsg = {fg=darkforest.yellow,bg=darkforest.none,style='bold'};
     ModeMsg = {fg=darkforest.fg,bg=darkforest.none,style='bold'};
-    MatchParen = {style=darkforest.none,bg=darkforest.base5};
+    MatchParen = {style='bold',bg=darkforest.yellow, fg=darkforest.red};
     NonText = {fg=darkforest.bg1};
     Whitespace = {fg=darkforest.base4};
     SpecialKey = {fg=darkforest.bg1};

@@ -76,6 +76,10 @@ vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>',
 -- dashboard
 vim.api.nvim_set_keymap('n', '<Leader>;', ':Dashboard<CR>',
                         {noremap = true, silent = true})
+-- spell
+-- map <leader>o :setlocal spell! spelllang=en,el<CR>
+vim.api.nvim_set_keymap('n', '<Leader>o', ':setlocal spell! spelllang=en,el<CR>',
+                        {noremap = true, silent = true})
 
 -- Comments
 vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>",
@@ -107,7 +111,7 @@ local mappings = {
 
     b = {
         name = "Buffers",
-        j = {"<cmd>BufferPick<cr>", "jump to buffer"},
+        j = {"<cmd>BufferLinePick<cr>", "jump to buffer"},
         f = {"<cmd>Telescope buffers<cr>", "Find buffer"},
         w = {"<cmd>BufferWipeout<cr>", "wipeout buffer"},
         e = {
@@ -243,7 +247,12 @@ local mappings = {
         M = {"<cmd>Telescope man_pages<cr>", "Man Pages"},
         r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
         R = {"<cmd>Telescope registers<cr>", "Registers"},
-        t = {"<cmd>Telescope live_grep<cr>", "Text"}
+        t = {"<cmd>Telescope live_grep<cr>", "Text"},
+        C = {"<cmd>Telescope commands<cr>", "Commands"},
+        k = {"<cmd>Telescope keymaps<cr>", "keymaps"},
+        n = {"<cmd>lua require'nv-telescope'.nvim_config()<cr>", "nvim conf"},
+        N = {"<cmd>lua require'nv-telescope'.find_notes()<cr>", "Notes"}
+
     },
     S = {
         name = "Session",
@@ -253,6 +262,10 @@ local mappings = {
     T = {
         name = "Treesitter",
         i = {":TSConfigInfo<cr>", "Info"}
+    },
+    w = {
+        name = "Vimwiki",
+        c = {"<cmd>VimwikiToggleListItem<cr>", "Toggle List Item"}
     }
 }
 
