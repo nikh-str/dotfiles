@@ -35,17 +35,10 @@ require("which-key").setup {
 }
 
 -- Set leader
-if O.leader_key == ' ' or O.leader_key == 'space' then
     vim.api.nvim_set_keymap('n', '<Space>', '<NOP>',
                             {noremap = true, silent = true})
     vim.g.mapleader = ' '
     vim.g.maplocalleader = ','
-else
-    vim.api.nvim_set_keymap('n', O.leader_key, '<NOP>',
-                            {noremap = true, silent = true})
-    vim.g.mapleader = O.leader_key
-    vim.g.maplocalleader = ','
-end
 
 local opts = {
     mode = "n", -- NORMAL mode
@@ -70,15 +63,11 @@ vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>',
 
 
 
-vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>',
+vim.api.nvim_set_keymap('n', '<Leader>s', ':Telescope find_files<CR>',
                             {noremap = true, silent = true})
 
 -- dashboard
 vim.api.nvim_set_keymap('n', '<Leader>;', ':Dashboard<CR>',
-                        {noremap = true, silent = true})
--- spell
--- map <leader>o :setlocal spell! spelllang=en,el<CR>
-vim.api.nvim_set_keymap('n', '<Leader>o', ':setlocal spell! spelllang=en,el<CR>',
                         {noremap = true, silent = true})
 
 -- Comments
@@ -87,16 +76,13 @@ vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>",
 vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>",
                         {noremap = true, silent = true})
 
--- close buffer
-vim.api.nvim_set_keymap("n", "<leader>c", ":bdelete<CR>",
-                        {noremap = true, silent = true})
-
 vim.api.nvim_set_keymap("n", "<leader>v", "<C-W>v<CR>",
                         {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>h", "<C-W>s<CR>",
                         {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>',
                          {noremap = true, silent=true}) --see also mappings.lua
+vim.api.nvim_set_keymap('v', 'gv', '<Plug>SnipRun', {silent = true})
 
 
 local mappings = {
@@ -104,13 +90,14 @@ local mappings = {
     ["/"] = "Comment",
     ["c"] = "Close Buffer",
     ["e"] = "Explorer",
-    ["f"] = "Find File",
+    -- ["f"] = "Find File",
     ["H"] = "No Highlight",
     ["v"] =  "split right",
     ["h"] =  "split below",
 
     b = {
         name = "Buffers",
+        c = {"<cmd>bdelete<cr>", "close buffer"},
         j = {"<cmd>BufferLinePick<cr>", "jump to buffer"},
         f = {"<cmd>Telescope buffers<cr>", "Find buffer"},
         w = {"<cmd>BufferWipeout<cr>", "wipeout buffer"},
@@ -227,9 +214,12 @@ local mappings = {
             "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
             "Workspace Symbols"
         },
-        t = {"<cmd>SymbolsOutline<cr>","Document Tags"}
     },
-    s = {
+    u = {
+        name="Ultisnips",
+        e = {"<cmd>UltiSnipsEdit<cr>", "UltisnipsEdit"}
+    },
+    f = {
         name = "Search",
         b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
         c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
@@ -253,6 +243,25 @@ local mappings = {
         n = {"<cmd>lua require'nv-telescope'.nvim_config()<cr>", "nvim conf"},
         N = {"<cmd>lua require'nv-telescope'.find_notes()<cr>", "Notes"}
 
+    },
+    t = {
+    name = "Toggle",
+    s = {"<cmd>setlocal spell! spelllang=en,el<CR>", "Spelling"},
+    z = {"<cmd>ZenMode<CR>", "Zen"},
+    t = {"<cmd>SymbolsOutline<cr>","Document Tags"},
+    r = {"<cmd>call Toggle_relativenumbers()<cr>","Relative numbers"}
+    },
+    g = {
+        name = "SnipRun",
+        g = { "<cmd>SnipRun<cr>", "SnipRun"},
+        c = { "<cmd>SnipClose<cr>", "SnipClose"},
+        },
+
+    p = {
+        name = "Hop",
+        w = {"<cmd>HopWord<cr>", "HopWord"},
+        l = {"<cmd>HopLine<cr>", "HopLine"},
+        c = {"<cmd>HopChar1<cr>", "HopChar"},
     },
     S = {
         name = "Session",
@@ -293,9 +302,6 @@ local mappings = {
 --     mappings[""] = "Highlight Capture"
 -- end
 
-    vim.api.nvim_set_keymap("n", "<leader>z", ":ZenMode<CR>",
-                            {noremap = true, silent = true})
-    mappings["z"] = "Zen"
 
 -- if O.plugin.lazygit.active then
 --     vim.api.nvim_set_keymap("n", "<leader>gg", ":LazyGit<CR>",

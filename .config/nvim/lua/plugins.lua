@@ -161,5 +161,20 @@ return require('packer').startup(function(use)
   }
   use {"iamcco/markdown-preview.nvim", run = [[sh -c 'cd app && yarn install']]}
   use {'jbyuki/nabla.nvim'}
+  use {
+  'phaazon/hop.nvim',
+  as = 'hop',
+  config = function()
+    -- you can configure Hop the way you like here; see :h hop-config
+    require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+  end
+}
+use { 'JuliaEditorSupport/julia-vim'}
+use { 'jpalardy/vim-slime' }
+use { 'michaelb/sniprun', run = 'bash ./install.sh'}
+use {'kristijanhusak/orgmode.nvim', config = function()
+        require('orgmode').setup{}
+end
+}
 
 end)

@@ -40,6 +40,7 @@ awful.rules.rules = {
           "Lxappearance",
           "Pamac-manager",
           "KeePassXC",
+          "Thunar",
           "xtightvncviewer"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -48,7 +49,7 @@ awful.rules.rules = {
           "Event Tester",  -- xev.
           "Power Manager",
           "music",
-          "ranger",
+          "fm",
           "calendar",
           "vCoolor"
         },
@@ -60,6 +61,7 @@ awful.rules.rules = {
       }, properties = {
           floating = true,
           placement = awful.placement.centered,
+          -- border_color = beautiful.border_float,
         }
     },
 
@@ -74,16 +76,25 @@ awful.rules.rules = {
 
 
     { rule = { class = "Signal" },
-      properties = { screen = 1, tag = "", floating=true, ontop=true, switchtotag = true}
+      properties = { screen = 1, tag = "", floating=true, raise=true, switchtotag = true}
     },
+    { rule = { class = "zoom" },
+      properties = { screen = 1, tag = "", floating=true, raise=true, switchtotag = true}
+    },
+
 
    { rule = { class = "Element" },
-      properties = { screen = 1, tag = "", floating=true, ontop=true, x=471, y=175, width=1084, height=783, switchtotag = true }
+      properties = {
+          screen = 1,
+          tag = "",
+          floating=true,
+          ontop=true,
+          raise = true,
+          x=471, y=175, width=1084, height=783,
+          switchtotag = true
+      }
     },
 
-   -- { rule = { class = "KeePassXC" },
-   --    properties = { screen = 1, floating=true, ontop=true, x=471, y=175, width=1084, height=783 }
-   --  },
     -- Set Firefox to always map on the tag named "2" on screen 1.
     { rule = { class = "firefox" },
       properties = { screen = 1, tag = "", switchtotag = true } },

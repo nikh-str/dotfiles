@@ -1,16 +1,31 @@
 local awful = require("awful")
 local gears = require("gears")
 local beautiful = require("beautiful")
-local bling = require("module.bling")
+local bling = require("3rd-party.bling")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
-awful.layout.layouts = {
-    awful.layout.suit.tile,
-    awful.layout.suit.max,
-    awful.layout.suit.floating,
-    bling.layout.centered,
-    bling.layout.mstab,
-}
+-- awful.layout.layouts = {
+--     awful.layout.suit.tile,
+--     awful.layout.suit.max,
+--     -- awful.layout.suit.floating,
+--     awful.layout.suit.magnifier,
+--     awful.layout.suit.tile.top,
+--     -- awful.layout.suit.spiral.name,
+--     bling.layout.centered,
+--     bling.layout.mstab,
+-- }
+
+awful.layout.append_default_layouts(
+            {
+                awful.layout.suit.tile,
+                awful.layout.suit.max,
+                    -- awful.layout.suit.floating,
+                awful.layout.suit.magnifier,
+                awful.layout.suit.tile.top,
+                bling.layout.centered,
+                bling.layout.mstab,
+            }
+        )
 
 -- Rounded corners
 client.connect_signal("manage", function (c, startup)

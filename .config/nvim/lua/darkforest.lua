@@ -11,7 +11,7 @@ local darkforest = {
   base7      = '#9ca0a4';
   base8      = '#b1b1b1';
 
-  bg = '#0e0f0e';
+  bg = '#060606';
   bg1 = '#504945';
   bg_popup = '#1c1e1c';
   -- bg_highlight  = '#0e0f0e';
@@ -51,6 +51,7 @@ local darkforest = {
 
   bracket = '#d88913';
   currsor_bg = '#4f5b66';
+  sidebar_bg= '#060606';
   none = 'NONE';
 }
 
@@ -87,7 +88,7 @@ function darkforest.load_syntax()
   local syntax = {
     Normal = {fg = darkforest.fg,bg=darkforest.bg_highlight}; -- also changes buffer fill
     Terminal = {fg = darkforest.fg,bg=darkforest.bg};
-    SignColumn = {fg=darkforest.fg,bg=darkforest.bg};
+    SignColumn = {fg=darkforest.fg,bg=darkforest.none};
     FoldColumn = {fg=darkforest.fg_alt,bg=darkforest.black};
     VertSplit = {fg=darkforest.base1,bg=darkforest.base1};
     Folded = {fg=darkforest.teal,bg=darkforest.none};
@@ -113,7 +114,7 @@ function darkforest.load_syntax()
     ErrorMsg = {fg=darkforest.red,bg=darkforest.none,style='bold'};
     WarningMsg = {fg=darkforest.yellow,bg=darkforest.none,style='bold'};
     ModeMsg = {fg=darkforest.fg,bg=darkforest.none,style='bold'};
-    MatchParen = {style='bold',bg=darkforest.yellow, fg=darkforest.red};
+    MatchParen = {style='bold',bg=darkforest.base4, fg=darkforest.yellow};
     NonText = {fg=darkforest.bg1};
     Whitespace = {fg=darkforest.base4};
     SpecialKey = {fg=darkforest.bg1};
@@ -270,6 +271,7 @@ function darkforest.load_plugin_syntax()
     CursorWord0 = {bg=darkforest.currsor_bg};
     CursorWord1 = {bg=darkforest.currsor_bg};
 
+    NvimTreeNormal = { bg = darkforest.sidebar_bg },
     NvimTreeFolderName = {fg=darkforest.magenta};
     NvimTreeRootFolder = {fg=darkforest.red,style='bold'};
     NvimTreeSpecialFile = {fg=darkforest.green,bg=darkforest.none,style='NONE'};
