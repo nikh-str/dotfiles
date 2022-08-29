@@ -32,7 +32,6 @@ npairs.setup {
     java = false, -- don't check treesitter on java
   },
 }
-
 require("nvim-treesitter.configs").setup { autopairs = { enable = true } }
 
 local ts_conds = require "nvim-autopairs.ts-conds"

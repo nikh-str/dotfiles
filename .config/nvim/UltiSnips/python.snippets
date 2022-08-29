@@ -1,0 +1,101 @@
+snippet impmat "import matplotlib" b
+# import matplotlib
+# matplotlib.rcParams['text.usetex'] = True
+import matplotlib.pyplot as plt
+# plt.style.use('~/.config/matplotlib/stylelib/paper.mplstyle')
+${0}
+endsnippet
+
+snippet impnum "import numpy" b
+import numpy as np
+# import math
+${0}
+endsnippet
+
+
+#FOR
+snippet for "for loop" b
+for ${1:item} in ${2:iterable}:
+	${3:${VISUAL:pass}}
+endsnippet
+
+
+snippet def "define func" b
+def ${1:name}(${2:parametes}):
+    """
+    ${3:description}
+    """
+	${4:${VISUAL:code}}
+
+	return ${5:returned var}
+endsnippet
+
+
+snippet multcom "multiline comment" b
+"""
+${1:${VISUAL:comment}}
+"""
+${0}
+endsnippet
+
+
+snippet unif "uniform dist" i
+random.uniform(${1:low=0.0},${2:high=1.0} , ${3:size=None})
+${0}
+endsnippet
+
+
+snippet normal "normal dist" i
+np.random.normal(${1:mean=0.0},${2:stdev=1.0} , ${3:size=None})
+${0}
+endsnippet
+
+
+snippet figure "complete fig env" b
+fig = plt.figure()
+plt.plot(${1:x,y,'o-', label =})
+# plt.xscale('log')
+# plt.yscale('log')
+plt.yticks(fontsize=10)
+plt.xticks(fontsize=10)
+plt.legend()
+plt.xlabel(r"$ ${2:latex label}$", fontsize=14)
+plt.ylabel(r"$ ${3:latex label}$", fontsize=14)
+# plt.annotate(r'$x_i \in p(x) \sim x^{-(1+\mu)}$', xy=(0.05, 0.05), xycoords='axes fraction',fontsize=16)
+plt.title(r"\textbf{${4:latex title}}" rf" $\mu={m}$", fontsize=18)
+${0}
+plt.savefig()
+plt.show()
+endsnippet
+
+
+snippet forind
+for ind, ${2:item} in enumerate(${1:obj}):
+	$3
+endsnippet
+
+
+####################
+# If / Else / Elif #
+####################
+snippet if "If" b
+if ${1:condition}:
+	${2:${VISUAL:pass}}
+endsnippet
+
+snippet ife "If / Else" b
+if ${1:condition}:
+	${2:${VISUAL:pass}}
+else:
+	${3:pass}
+endsnippet
+
+snippet ifee "If / Elif / Else" b
+if ${1:condition}:
+	${2:${VISUAL:pass}}
+elif ${3:condition}:
+	${4:pass}
+else:
+	${5:pass}
+endsnippet
+

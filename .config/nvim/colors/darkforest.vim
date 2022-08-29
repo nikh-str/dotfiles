@@ -1,2 +1,2 @@
 
-lua require('darkforest')
+lua require('darkforest').colorscheme()
