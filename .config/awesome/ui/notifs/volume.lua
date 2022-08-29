@@ -27,7 +27,7 @@ local volume_icon = wibox.widget {
 local volume_adjust = wibox({
     screen = screen.primary,
     type = "notification",
-    x = screen.geometry.width / 2 - width / 2,
+    x = screen.geometry.width - 200 ,
     y = screen.geometry.height / 2 - height / 2 + 300,
     width = width,
     height = height,
@@ -66,7 +66,7 @@ volume_adjust:setup{
         }
 
     },
-    shape = helpers.rrect(beautiful.client_radius),
+    shape = helpers.rrect(beautiful.notification_radius),
     bg = beautiful.xbackground,
     border_width = beautiful.widget_border_width,
     border_color = beautiful.widget_border_color,
@@ -116,4 +116,4 @@ awesome.connect_signal("signal::volume", function(volume, muted)
         hide_volume_adjust:start()
     end
 end)
-]] -- 
+]] --
