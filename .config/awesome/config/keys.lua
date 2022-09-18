@@ -31,7 +31,7 @@ awful.keyboard.append_global_keybindings({
 
 	awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
 
-	awful.key({ modkey }, "`", awful.tag.history.restore, { description = "go back", group = "tag" }),
+	awful.key({ modkey }, "Tab", awful.tag.history.restore, { description = "go back", group = "tag" }),
 
 	awful.key({ modkey }, "j", function()
 		awful.client.focus.byidx(1)
@@ -100,12 +100,12 @@ awful.keyboard.append_global_keybindings({
 		{ description = "jump to urgent client", group = "client" }
 	),
 
-	awful.key({ modkey }, "Tab", function()
-		awful.client.focus.history.previous()
-		if client.focus then
-			client.focus:raise()
-		end
-	end, { description = "go back", group = "client" }),
+	-- awful.key({ modkey }, "Tab", function()
+	-- 	awful.client.focus.history.previous()
+	-- 	if client.focus then
+	-- 		client.focus:raise()
+	-- 	end
+	-- end, { description = "go back", group = "client" }),
 
 	-- Standard program
 	awful.key({ modkey, "Control" }, "Return", function()

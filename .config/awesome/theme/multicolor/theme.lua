@@ -117,6 +117,8 @@ theme.titlebar_maximized_button_focus_inactive = theme.confdir .. "/icons/titleb
 theme.titlebar_maximized_button_normal_active = theme.confdir .. "/icons/titlebar/maximized_normal_active.svg"
 theme.titlebar_maximized_button_focus_active = theme.confdir .. "/icons/titlebar/maximized_focus_active.svg"
 theme.titlebar_maximized_button_focus_active_hover = theme.confdir .. "/icons/titlebar/maximized_focus_active_hover.svg"
+theme.titlebar_maximized_button_focus_inactive_hover = theme.confdir
+	.. "/icons/titlebar/maximized_focus_active_hover.svg"
 theme.titlebar_maximized_button_normal_active_hover = theme.confdir
 	.. "/icons/titlebar/maximized_focus_active_hover.svg"
 theme.titlebar_maximized_button_normal_inactive_hover = theme.confdir

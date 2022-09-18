@@ -28,6 +28,8 @@ awful.rules.rules = {
 				"DTA", -- Firefox addon DownThemAll.
 				"copyq", -- Includes session name in class.
 				"pinentry",
+				"ranger_scratch",
+				"term_scratch",
 			},
 			class = {
 				"Arandr",
@@ -90,6 +92,10 @@ awful.rules.rules = {
 			floating = true,
 			raise = true,
 			switchtotag = true,
+			x = 502,
+			y = 262,
+			width = 984,
+			height = 583,
 			titlebars_enabled = true,
 		},
 	},
