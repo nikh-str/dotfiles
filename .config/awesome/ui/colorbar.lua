@@ -60,9 +60,9 @@ bling.widget.task_preview.enable({
 local wrap_widget = function(w)
 	local wrapped = wibox.widget({
 		w,
-		top = dpi(6),
+		top = dpi(5),
 		left = dpi(4),
-		bottom = dpi(-2),
+		bottom = dpi(5),
 		right = dpi(4),
 		widget = wibox.container.margin,
 	})
@@ -74,7 +74,7 @@ local make_pill = function(w)
 	local pill = wibox.widget({
 		w,
 		bg = beautiful.bg_module,
-		shape = helpers.rrect(20),
+		shape = helpers.rrect(11), -- radius
 		widget = wibox.container.background,
 	})
 	return pill
@@ -84,8 +84,8 @@ end
 --{{{ Icon left -----------------------------------------------------------
 
 local icon1 = wibox.widget({
-	font = beautiful.icon_font,
-	markup = "<span foreground='" .. beautiful.date_fg .. "'></span>",
+	font = beautiful.icon_font_name .. "10.5" ,
+	markup = "<span foreground='" .. beautiful.date_fg .. "'></span>",
 	align = "center",
 	valign = "center",
 	widget = wibox.widget.textbox,
@@ -305,7 +305,7 @@ date_text:connect_signal("widget::redraw_needed", function()
 end)
 
 local date_icon = wibox.widget({
-	font = beautiful.icon_font_name .. "9.5",
+	font = beautiful.icon_font_name .. "8",
 	markup = "<span foreground='" .. beautiful.date_fg .. "'></span>",
 	align = "center",
 	valign = "center",
@@ -329,7 +329,7 @@ time_text:connect_signal("widget::redraw_needed", function()
 end)
 
 local time_icon = wibox.widget({
-	font = beautiful.icon_font_name .. "12",
+	font = beautiful.icon_font_name .. "9",
 	markup = "<span foreground='" .. beautiful.time_fg .. "'> </span>",
 	align = "center",
 	valign = "center",
@@ -361,15 +361,15 @@ local mpdarc_widget = require("3rd-party.awesome-wm-widgets.mpdarc-widget.mpdarc
 
 local mpd_pill = wibox.widget({
 	{
-		{ mpdarc_widget, top = dpi(1), widget = wibox.container.margin },
-		helpers.horizontal_pad(7),
+		{ mpdarc_widget, top = dpi(2), bottom=dpi(2), widget = wibox.container.margin },
+		helpers.horizontal_pad(3),
 		layout = wibox.layout.fixed.horizontal,
 	},
 	-- buttons = {
 	-- awful.button({ }, 1, function () awful.spawn( "alacritty --title music -e /home/niki/.config/ncmpcpp/ncmpcpp-ueberzug/ncmpcpp-ueberzug") end),
 	-- },
 	left = dpi(5),
-	right = dpi(5),
+	right = dpi(2),
 	widget = wibox.container.margin,
 })
 
@@ -454,7 +454,7 @@ function beautiful.at_screen_connect(s, monitor)
 		filter = awful.widget.tasklist.filter.currenttags,
 		buttons = tasklist_buttons,
 		style = {
-			shape_border_width = 1,
+			shape_border_width = 0,
 			shape_border_color = beautiful.xcolor1,
 			shape = gears.shape.rounded_bar,
 		},
@@ -462,7 +462,7 @@ function beautiful.at_screen_connect(s, monitor)
 			spacing = 8,
 			spacing_widget = {
 				{
-					forced_width = 10,
+					-- forced_width = 10,
 					color = "#27242405",
 					-- shape        = gears.shape.circle,
 					widget = wibox.widget.separator,
@@ -491,8 +491,8 @@ function beautiful.at_screen_connect(s, monitor)
 					},
 					layout = wibox.layout.fixed.horizontal,
 				},
-				left = 15,
-				right = 10,
+				left = 10,
+				right = 5,
 				widget = wibox.container.margin,
 			},
 			id = "background_role",

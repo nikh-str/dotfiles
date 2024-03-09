@@ -1,4 +1,5 @@
 local bling = require("3rd-party.bling")
+local awful = require("awful")
 -- local awful = require("awful")
 -- local wibox = require("wibox")
 -- local gears = require("gears")
@@ -21,4 +22,7 @@ bling.widget.window_switcher.enable({
 	next_key = "Right", -- The key on which to select the next client
 	vim_previous_key = "h", -- Alternative key on which to select the previous client
 	vim_next_key = "l", -- Alternative key on which to select the next client
+
+    cycleClientsByIdx = awful.client.focus.byidx,               -- The function to cycle the clients
+    filterClients = awful.widget.tasklist.filter.currenttags,   -- The function to filter the viewed clients
 })

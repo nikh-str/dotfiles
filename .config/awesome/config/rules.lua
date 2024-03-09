@@ -43,6 +43,7 @@ awful.rules.rules = {
 				"veromix",
 				"zoom",
 				"Zoom Meeting",
+				"Slack",
 				"Lxappearance",
 				"Pamac-manager",
 				"KeePassXC",
@@ -85,6 +86,14 @@ awful.rules.rules = {
 	{ rule = { class = "mpv" }, properties = { screen = 1 } },
 
 	{
+		rule_any = { name = { "plank" } },
+		properties = {
+			ontop = true,
+			border_width = 0,
+		},
+	},
+
+	{
 		rule = { class = "Signal" },
 		properties = {
 			screen = 1,
@@ -96,6 +105,21 @@ awful.rules.rules = {
 			y = 262,
 			width = 984,
 			height = 583,
+			titlebars_enabled = true,
+		},
+	},
+	{
+		rule = { class = "Slack" },
+		properties = {
+			screen = 1,
+			tag = "",
+			floating = true,
+			raise = true,
+			switchtotag = true,
+			x = 502,
+			y = 162,
+			width = 984,
+			height = 783,
 			titlebars_enabled = true,
 		},
 	},
@@ -127,7 +151,39 @@ awful.rules.rules = {
 	},
 
 	{
-		rule = { class = "Element" },
+		rule = { class = "Session" },
+		properties = {
+			screen = 1,
+			tag = "",
+			floating = true,
+			ontop = true,
+			raise = true,
+			x = 471,
+			y = 175,
+			titlebars_enabled = true,
+			width = 1084,
+			height = 783,
+			switchtotag = true,
+		},
+	},
+	{
+		rule = { class = "SchildiChat" },
+		properties = {
+			screen = 1,
+			tag = "",
+			floating = true,
+			ontop = true,
+			raise = true,
+			x = 471,
+			y = 175,
+			titlebars_enabled = true,
+			width = 1084,
+			height = 783,
+			switchtotag = true,
+		},
+	},
+	{
+		rule = { class = "Briar" },
 		properties = {
 			screen = 1,
 			tag = "",
@@ -173,6 +229,10 @@ awful.rules.rules = {
 	{
 		rule = { class = "firefox" },
 		properties = { screen = 1, tag = "", titlebars_enabled = false, switchtotag = true },
+	},
+	{
+		rule = { class = "Brave" },
+		properties = { screen = 1, tag = "", titlebars_enabled = false, switchtotag = false },
 	},
 }
 --

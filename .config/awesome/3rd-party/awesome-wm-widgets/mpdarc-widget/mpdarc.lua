@@ -62,14 +62,14 @@ local update_graphic = function(widget, stdout, _, _, _)
 		icon.image = PLAY_ICON_NAME
 		widget.colors = { "#3FB55F" }
 		widget.value = tonumber((100 - mpdpercent) / 100)
-		mpdarc_current_song_widget.markup = current_song
-		mpdarc_current_song_widget.forced_width = 150
+		-- mpdarc_current_song_widget.markup = current_song
+		-- mpdarc_current_song_widget.forced_width = 150
 	elseif mpdstatus == "paused" then
 		icon.image = PAUSE_ICON_NAME
 		widget.colors = { "#C1571A" }
 		widget.value = tonumber(mpdpercent / 100)
-		mpdarc_current_song_widget.markup = current_song
-		mpdarc_current_song_widget.forced_width = 150
+		-- mpdarc_current_song_widget.markup = current_song
+		-- mpdarc_current_song_widget.forced_width = 150
 	else
 		icon.image = STOP_ICON_NAME
 		if string.len(stdout) == 0 then -- MPD is not running

@@ -19,8 +19,8 @@ local os = os
 local theme = {}
 theme.confdir = os.getenv("HOME") .. "/.config/awesome/theme/multicolor"
 --Fonts
-theme.font_name = "Hack Nerd Font Bold "
-theme.font = theme.font_name .. "11"
+theme.font_name = "mononoki Nerd Font Bold "
+theme.font = theme.font_name .. "10"
 theme.icon_font_name = "Iosevka Nerd Font "
 theme.icon_font = theme.icon_font_name .. "14"
 theme.taglist_font = "Iosevka Nerd Font 16"
@@ -52,6 +52,7 @@ theme.net_fg = "#83c07c"
 theme.cpu_fg = "#348B71"
 theme.power_fg = "#ff6c6b"
 theme.mpd_fg = "#30117D"
+theme.gray = "#4B4A4F"
 --Other colors
 theme.menu_bg_normal = "#000000"
 theme.menu_bg_focus = "#000000"
@@ -181,15 +182,15 @@ theme.titlebar_fg_focus = theme.xforeground
 
 -- Wibar
 --
-theme.wibar_height = dpi(27)
+theme.wibar_height = dpi(35)
 theme.wibar_position = "top"
 theme.wibar_margin = dpi(15)
 theme.wibar_spacing = dpi(15)
-theme.wibar_border_color = theme.xcolor4
-theme.wibar_bg = "#00000008"
+theme.wibar_border_color = theme.xcolor7
+theme.wibar_bg = "#14121285"
 theme.wibar_opacity = 1
 theme.wibar_bg_secondary = "#00000008"
-theme.bg_module = "#0B0B0B" -- pills wibar
+theme.bg_module = "#141717" -- pills wibar
 
 -- Tooltips
 --
@@ -244,7 +245,7 @@ theme.tasklist_bg_minimize = theme.bg_minimize .. 35
 theme.tasklist_fg_minimize = theme.fg_minimize .. 55
 theme.tasklist_bg_normal = theme.xcolor3 .. 90
 theme.tasklist_fg_normal = theme.fg_normal
-theme.tasklist_disable_task_name = true
+theme.tasklist_disable_task_name = false
 theme.tasklist_disable_icon = false
 theme.tasklist_bg_urgent = theme.xcolor4
 theme.tasklist_fg_urgent = theme.xcolor1
@@ -257,25 +258,25 @@ theme.task_preview_widget_border_width = 2 -- The border width of the widget
 theme.task_preview_widget_margin = 2 -- The margin of the widget
 
 -- Window switchr bling
-theme.window_switcher_widget_bg = theme.xbackground -- The bg color of the widget
+theme.window_switcher_widget_bg = theme.xcolor0 -- The bg color of the widget
 theme.window_switcher_widget_border_width = 2 -- The border width of the widget
 theme.window_switcher_widget_border_radius = 5 -- The border radius of the widget
 theme.window_switcher_widget_border_color = theme.xcolor0 -- The border color of the widget
-theme.window_switcher_clients_spacing = 15 -- The space between each client item
+theme.window_switcher_clients_spacing = 5 -- The space between each client item
 theme.window_switcher_client_icon_horizontal_spacing = 5 -- The space between client icon and text
-theme.window_switcher_client_width = 350 -- The width of one client widget
+theme.window_switcher_client_width = 250 -- The width of one client widget
 theme.window_switcher_client_height = 250 -- The height of one client widget
 theme.window_switcher_client_margins = 20 -- The margin between the content and the border of the widget
 theme.window_switcher_thumbnail_margins = 10 -- The margin between one client thumbnail and the rest of the widget
 theme.thumbnail_scale = false -- If set to true, the thumbnails fit policy will be set to "fit" instead of "auto"
 theme.window_switcher_name_margins = 10 -- The margin of one clients title to the rest of the widget
 theme.window_switcher_name_valign = "center" -- How to vertically align one clients title
-theme.window_switcher_name_forced_width = 200 -- The width of one title
-theme.window_switcher_name_font = "Hack Nerd Font 9" -- The font of all titles
-theme.window_switcher_name_normal_color = theme.xcolor4 -- The color of one title if the client is unfocused
-theme.window_switcher_name_focus_color = "#af3a1f" -- The color of one title if the client is focused
+theme.window_switcher_name_forced_width = 100 -- The width of one title
+theme.window_switcher_name_font = "mononoki Nerd Font 10" -- The font of all titles
+theme.window_switcher_name_normal_color = theme.gray -- The color of one title if the client is unfocused
+theme.window_switcher_name_focus_color = "#0B7985" -- The color of one title if the client is focused
 theme.window_switcher_icon_valign = "center" -- How to vertically align the one icon
-theme.window_switcher_icon_width = 20 -- The width of one icon
+theme.window_switcher_icon_width = 30 -- The width of one icon
 
 theme.flash_focus_start_opacity = 0.9 -- the starting opacity
 theme.flash_focus_step = 0.01 -- the step of animation
@@ -291,9 +292,10 @@ theme.taglist_bg = theme.wibar_bg
 theme.taglist_bg_focus = theme.bg_focus
 theme.taglist_fg_focus = "#af3a1f"
 theme.taglist_bg_urgent = theme.xcolor0
-theme.taglist_fg_urgent = theme.xcolor6
+theme.taglist_fg_urgent = theme.xcolor7
 theme.taglist_bg_occupied = theme.bg_module
-theme.taglist_fg_occupied = "#D2AD6F"
+-- theme.taglist_fg_occupied = "#D2AD6F"
+theme.taglist_fg_occupied = "#4B6583"
 theme.taglist_bg_empty = theme.bg_module
 theme.taglist_fg_empty = "#554A4A"
 -- theme.taglist_bg_volatile = transparent

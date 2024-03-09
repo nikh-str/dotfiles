@@ -19,7 +19,7 @@ awful.layout.append_default_layouts({
 	awful.layout.suit.tile,
 	awful.layout.suit.max,
 	-- awful.layout.suit.floating,
-	-- awful.layout.suit.magnifier,
+    awful.layout.suit.spiral,
 	awful.layout.suit.tile.top,
 	bling.layout.centered,
 	bling.layout.mstab,

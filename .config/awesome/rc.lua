@@ -7,7 +7,7 @@
 --    (_(__|   ((__|
 
 -- {{{ Libraries
-local client, screen = client, screen
+local client, screen, mouse = client, screen, mouse
 
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
@@ -29,6 +29,7 @@ beautiful.init(require("gears").filesystem.get_configuration_dir() .. "/theme/mu
 require("config")
 
 -- {{{ Tags
+-- mouse.screen = screen.primary
 screen.connect_signal("request::desktop_decoration", function(s)
 	--- Each screen has its own tag table.
 	awful.tag({ "", "", "", "", "", "龎", "" }, s, awful.layout.layouts[1])
@@ -62,6 +63,21 @@ end)
 client.connect_signal("unfocus", function(c)
 	c.border_color = beautiful.border_normal
 end)
+
+-- generic icon for missing app icons in taskbar
+client.connect_signal("manage", function(c)
+    local cairo = require("lgi").cairo
+    local gears = require("gears")
+    local default_icon = "/home/niqi/.config/awesome/theme/icons/app.svg"
+    if c and c.valid and not c.icon then
+        local s = gears.surface(default_icon)
+        local img = cairo.ImageSurface.create(cairo.Format.ARGB32, s:get_width(), s:get_height())
+        local cr = cairo.Context(img)
+        cr:set_source_surface(s, 0, 0)
+        cr:paint()
+        c.icon = img._native
+    end
+end) 
 --}}}
 
 -- -- Raise focused clients automatically
