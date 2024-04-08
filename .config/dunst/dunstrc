@@ -20,7 +20,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "320x2-25+35"
+    geometry = "320x5-25+35"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -56,7 +56,7 @@
 
     # Defines color of the frame around the notification window.
     # frame_color = "#f0b20a"
-    frame_color = "{color4}"
+    frame_color = "#6A5F5E"
 
     # Define a color for the separator.
     # possible values are:
@@ -158,7 +158,7 @@
     ### Icons ###
 
     # Align icons left/right/off
-    icon_position = right
+    icon_position = left
 
     # Scale small icons up to this size, set to 0 to disable. Helpful
     # for e.g. small files or high-dpi screens. In case of conflict,
@@ -169,8 +169,7 @@
     max_icon_size = 150
 
     # Paths to default icons.
-icon_path = /usr/share/icons/Papirus-Dark/22x22/status/:/usr/share/icons/Papirus-Dark/22x22/devices/:/usr/share/icons/Papirus-Dark/22x22/panel/:/usr/share/icons/Papirus-Dark/22x22/apps/
-
+icon_path = /usr/share/icons/Papirus-Dark/24x24/status/:/usr/share/icons/Papirus-Dark/24x24/devices/:/usr/share/icons/Papirus-Dark/24x24/apps/:/usr/share/icons/Papirus-Dark/24x24/apps/:/usr/share/icons/Papirus-Dark/24x24/panel/:/usr/share/icons/Papirus-Dark/24x24/categories/:/usr/share/icons/Papirus-Dark/24x24/categories/:/usr/share/icons/Papirus-Dark/24x24/devices/:/usr/share/icons/Papirus-Dark/24x24/emblems/:/usr/share/icons/Papirus-Dark/24x24/mimetypes/
 
     ### History ###
 
@@ -279,14 +278,14 @@ icon_path = /usr/share/icons/Papirus-Dark/22x22/status/:/usr/share/icons/Papirus
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#000000"
-    foreground = "{foreground}"
+    foreground = "#cbc4c8"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "{background}"
-    foreground = "{foreground}"
+    background = "#000000"
+    foreground = "#cbc4c8"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
