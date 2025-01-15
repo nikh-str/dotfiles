@@ -6,14 +6,21 @@
 dunst &
 wal -R & # restore wallpaper, pywal
 nm-applet &
-clipit &
-# pamac-tray &
+clipmenud &
+flameshot &
+# clipit &
+# clipman &
 udiskie -ns &
 sxhkd -m 1 &		# Bind keys with sxhkd
 setxkbmap us,gr -option 'grp:alt_shift_toggle' &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 xfce4-power-manager &
-picom -bc &
-$HOME/.config/polybar/launch.sh &
-# MPD daemon start (if no other user instance exists)
-[ ! -s ~/.config/mpd/pid ] && mpd
+# picom -b --experimental-backends &
+picom -b --backend glx --vsync &
+xsetroot -cursor_name left_ptr &
+# $HOME/.config/polybar/launch.sh &
+# mpd &
+
+xrdb ~/.Xresources
+sleep 0.5
+awesome-client 'awesome.restart()' >/dev/null 2>&1

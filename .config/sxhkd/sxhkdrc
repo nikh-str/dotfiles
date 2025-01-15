@@ -13,14 +13,14 @@ super + v
     clipmenu
 
 # dropdown term
-super + i
-	tdrop -ma -w 50% -h 60% -y 20% -x 25% kitty
+# super + i
+	# tdrop -ma -w 50% -h 60% -y 20% -x 25% kitty
 
 # program launcher
 super + space
 	rofi -lines 3  -padding 18 -width 30 -location 0 -show drun -sidebar-mode -columns 1 -font 'Noto Sans 14' -show-icons true
 
-super + F2
+super + u
     ~/.local/bin/dmenu/unicode-picker
 
 super + p
@@ -29,14 +29,20 @@ super + p
 alt + d
     ~/.local/bin/word-lookup.sh
 
-ctrl + shift + f
-     ~/.local/bin/dmenu/dmconf
-
-ctrl + m
-    ~/.local/bin/dmenu/dman
+# ctrl + shift + f
+     # ~/.local/bin/dmenu/dmconf
 
 alt + o
     ~/.local/bin/dmenu/dmbookmarks
+
+alt + ctrl + p
+    ~/.local/bin/dmenu/dmpapers
+
+alt + b
+    ~/.local/bin/dmenu/dmbooks
+
+alt + z
+    ~/.local/bin/dmenu/dmzotero
 
 ctrl + Print
      ~/.local/bin/dmenu/dmscrot
@@ -45,8 +51,11 @@ ctrl + shift + s
      ~/.local/bin/dmenu/dmsearch
 
 
-super + {e,F3,z,F4}
-	{element-desktop,thunar,$BROWSER, keepassxc}
+super + {e,z}
+	{thunar, $BROWSER}
+
+alt + p
+    keepassxc
 
 # Window switcher
 super + alt + @space
@@ -61,8 +70,8 @@ super + Escape
 super + shift + @d
 	killall dunst && notify-send 'restart dunst'
 
-ctrl + shift + @p
- 		~/.config/polybar/launch.sh & notify-send 'restart polybar'
+# ctrl + shift + @p
+ 		# ~/.config/polybar/launch.sh & notify-send 'restart polybar'
 
 super + shift + a
 	album-notify		
@@ -72,28 +81,35 @@ ctrl + shift + Escape
 	pkill -USR1 -x sxhkd && notify-send 'restart sxhkd'
 
 super + shift + p
-    killall picom && picom -bc 
+    killall picom && picom -b --experimental-backends &
 
-# XF86AudioRaiseVolume
-F12
+XF86AudioRaiseVolume
+# F12
 	changeVolume 5%+ unmute
-# XF86AudioLowerVolume
-F11
+
+XF86AudioLowerVolume
+# F11
 	changeVolume 5%- unmute
-# XF86AudioMute
-F10
+
+XF86AudioMute
+# F10
 	changeVolume mute
 super + +shift + n
     alacritty --title music -e ~/.config/ncmpcpp/ncmpcpp-ueberzug/ncmpcpp-ueberzug
 
-super + r
-    alacritty --title ranger -e ranger
+# Mute microphone
+XF86AudioMicMute
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# super + r
+#     alacritty --title fm -e ranger
 
 ctrl + {Down,Up,Right,Left}
-	mpc {play,pause,next,prev}
+	playerctl {play-pause,stop,next,previous}
+	# mpc {play,pause,next,prev}
 
 #Screenshots
-Print 
+alt + Print 
 		flameshot gui
 shift + Print
 				flameshot full -c
