@@ -13,7 +13,7 @@ O = {
     timeoutlen = 150,
     nvim_tree_disable_netrw = 0,
     ignore_case = true,
-    transparent_window = true,
+    transparent_window = false,
     smart_case = true,
     leader_key = ' ',
 

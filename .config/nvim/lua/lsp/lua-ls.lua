@@ -1,7 +1,7 @@
 -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
 
 DATA_PATH = vim.fn.stdpath("data")
-require("lspconfig").sumneko_lua.setup({
+require("lspconfig").lua_ls.setup({
 	-- cmd = {"lua-language-server"},
 	cmd = {
 		DATA_PATH .. "/lua-language-server/bin/Linux/lua-language-server",

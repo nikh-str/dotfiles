@@ -7,9 +7,9 @@ toggleterm.setup({
 	size = 20,
 	open_mapping = [[<c-\>]],
 	hide_numbers = true,
-	shade_filetypes = {},
-	shade_terminals = true,
-	shading_factor = 2,
+	-- shade_filetypes = {},
+	-- shade_terminals = true,
+	-- shading_factor = 2,
 	start_in_insert = true,
 	insert_mappings = true,
 	persist_size = true,
@@ -18,10 +18,23 @@ toggleterm.setup({
 	shell = vim.o.shell,
 	float_opts = {
 		border = "curved",
-		winblend = 0,
+		-- winblend = 2,
 		highlights = {
-			border = "Normal",
-			background = "Normal",
+			-- highlights which map to a highlight group name and a table of it's values
+			-- NOTE: this is only a subset of values, any group placed here will be set for the terminal window split
+			Normal = {
+				guifg = "#DC8731",
+				guibg = "#DC8731",
+			},
+			NormalFloat = {
+				-- link = "Term",
+				guibg = "#DC8731",
+				guifg = "#DC8731",
+			},
+			FloatBorder = {
+				guifg = "#DC8731",
+				guibg = "#DC8731",
+			},
 		},
 	},
 })

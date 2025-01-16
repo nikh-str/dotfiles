@@ -1,7 +1,9 @@
 local cmd = vim.cmd
 local opt = vim.opt
 
+
 cmd("filetype plugin on")
+-- cmd("colorscheme lightforest")
 cmd("colorscheme darkforest")
 -- Disable automatic commenting on new line
 cmd([[
@@ -12,20 +14,25 @@ autocmd FileType python set foldmethod=indent
 autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd BufRead,BufNewFile *.md setlocal spell!  ]])
 
-cmd([[
-let t:is_transparent = 0
-function! Toggle_transparent()
-    if t:is_transparent == 0
-        hi Normal guibg=NONE ctermbg=NONE
-        let t:is_transparent = 1
-    else
-        set background=dark
-        hi Normal ctermbg=none guibg=#0F0E0E"
-        let t:is_transparent = 0
-    endif
-endfunction
-nnoremap <C-t> : call Toggle_transparent()<CR>
-]])
+-- cmd([[
+-- let t:is_transparent = 0
+-- function! Toggle_transparent()
+--     if t:is_transparent == 0
+--         hi Normal guibg=NONE ctermbg=NONE
+--         let t:is_transparent = 1
+--     else
+--         hi Normal ctermbg=none guibg=#1F1D20"
+--         let t:is_transparent = 0
+--     endif
+-- endfunction
+-- nnoremap <C-t> : call Toggle_transparent()<CR>
+-- ]])
+-- cmd([[
+-- augroup user_colors
+--   autocmd!
+--   autocmd ColorScheme * :call Toggle_transparent()
+-- augroup END
+-- ]])
 
 opt.ruler = false
 opt.ignorecase = true

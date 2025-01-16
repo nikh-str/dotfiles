@@ -22,6 +22,7 @@ require("which-key").setup({
 		breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
 		separator = "➜", -- symbol used between a key and it's label
 		group = "+", -- symbol prepended to a group
+        ellipsis = "…"
 	},
 	window = {
 		border = "single", -- none, single, double, shadow
@@ -40,8 +41,8 @@ require("which-key").setup({
 
 -- Set leader
 -- vim.api.nvim_set_keymap("n", "<Space>", "<NOP>", { noremap = true, silent = true })
-vim.g.mapleader = " "
 vim.g.maplocalleader = ","
+vim.g.mapleader = " "
 
 local opts = {
 	mode = "n", -- NORMAL mode
@@ -51,7 +52,6 @@ local opts = {
 	noremap = true, -- use `noremap` when creating keymaps
 	nowait = false, -- use `nowait` when creating keymaps
 }
-
 -- no hl
 vim.api.nvim_set_keymap("n", "<Leader>H", ':let @/=""<CR>', { noremap = true, silent = true })
 
@@ -61,8 +61,10 @@ vim.api.nvim_set_keymap("n", "<Leader>r", ":RnvimrToggle<CR>", { noremap = true,
 vim.api.nvim_set_keymap("n", "<Leader>;", ":Dashboard<CR>", { noremap = true, silent = true })
 
 -- Comments
-vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>/', '<CMD>lua require("Comment.api").toggle.linewise.current()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<leader>/', '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "<leader>v", "<C-W>v<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>h", "<C-W>s<CR>", { noremap = true, silent = true })
@@ -125,7 +127,7 @@ local mappings = {
 			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
 			"Workspace Diagnostics",
 		},
-		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+		f = { "<cmd>lua vim.lsp.buf.format{async = true}<cr>", "Format" },
 		h = { "<cmd>Lspsaga hover_doc<cr>", "Hover Doc" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		j = { "<cmd>Lspsaga diagnostic_jump_prev<cr>", "Prev Diagnostic" },

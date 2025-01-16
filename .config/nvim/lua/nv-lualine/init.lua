@@ -2,6 +2,7 @@ local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
 	return
 end
+-- local my_theme = require('../darkforest.lua')
 
 local conditions = {
 	buffer_not_empty = function()
@@ -18,14 +19,15 @@ local conditions = {
 }
 
 local colors = {
-	bg = "#1c1e1c",
+	bg = "#050505",
 	yellow = "#A47F28",
 	cyan = "#008080",
 	darkblue = "#081633",
 	green = "#608B4E",
 	orange = "#FF8800",
-	purple = "#813462",
+	purple = "#A6397A",
 	magenta = "#d3869b",
+	brown = "#C63216",
 	grey = "#928374",
 	blue = "#569CD6",
 	red = "#cc241d",
@@ -84,7 +86,8 @@ local mode = {
 			["!"] = colors.red,
 			t = colors.red,
 		}
-		vim.api.nvim_command("hi LualineMode guifg=" .. mode_color[vim.fn.mode()] .. " guibg=" .. colors.bg)
+		vim.api.nvim_command("hi LualineMode guifg=" .. mode_color[vim.fn.mode()]) --.. " guibg=" .. colors.bg)
+		vim.api.nvim_command("hi LualineFilename guifg=" .. colors.grey .. " guibg=" .. colors.bg)
 		return "▊  Nvim"
 	end,
 	color = "LualineMode",
@@ -96,13 +99,15 @@ local filetype = {
 	cond = conditions.hide_in_width,
 	icons_enabled = true,
 	icon = nil,
-	-- color = { fg = colors.green, gui = "bold" },
+	color = { fg = colors.brown, gui = "bold" },
 }
 
 local filename = {
 	"filename",
 	-- cond = conditions.buffer_not_empty,
-	color = { fg = colors.grey, gui = "bold" },
+	color = { fg = colors.grey },
+	-- color = "LualineFilename",
+    shorting_target = 140,
 }
 
 local branch = {
@@ -159,14 +164,14 @@ local progress = {
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		-- theme = "auto",
-		theme = {
+		-- theme = {
 			-- We are going to use lualine_c an lualine_x as left and
 			-- right section. Both are highlighted by c theme .  So we
 			-- are just setting default looks o statusline
-			normal = { c = { fg = colors.fg, bg = colors.bg } },
-			inactive = { c = { fg = colors.fg, bg = colors.bg } },
-		},
+			-- normal = { c = { fg = colors.fg, bg = colors.bg } },
+			-- inactive = { c = { fg = colors.fg, bg = colors.bg } },
+		-- },
+		theme = "auto",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
@@ -174,12 +179,12 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { mode, diagnostics },
-		lualine_b = { filename },
+		lualine_b = { },
 		lualine_c = {},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { branch, diff, lsp_server, filetype },
-		lualine_y = { location },
-		lualine_z = { progress },
+		lualine_x = {filename, branch, diff, lsp_server, filetype, location, progress },
+		lualine_y = { },
+		lualine_z = {  },
 	},
 	inactive_sections = {
 		lualine_a = {},

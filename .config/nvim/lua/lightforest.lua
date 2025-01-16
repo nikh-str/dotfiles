@@ -1,42 +1,32 @@
 -- Theme:  darkforest
 -- fork of: http://github.com/glepnir/zephyr-nvim
 local darkforest = {
-	base0 = "#1B2229",
-	base1 = "#1c1f24",
-	base2 = "#202328",
-	base3 = "#23272e",
-	base4 = "#3f444a",
-	base5 = "#5B6268",
+	base0 = "#F5B688",
+	base1 = "#F5B688",
+	base2 = "#F5B688",
+	base3 = "#F5B688",
+	base4 = "#F3AD79",
+	base5 = "#CE9440",
 	base6 = "#828066",
 	base7 = "#9ca0a4",
 	base8 = "#b1b1b1",
 
-	bg = "#181719",
-	-- bg = "#E2CDBA",
-	bg1 = "#504945",
-	bg_popup = "#1c1e1c",
-	-- bg_highlight  = '#0e0f0e';
-	bg_highlight = "#09090905",
-	-- bg_cursorline  = '#291010';
-	bg_cursorline = "#010101",
+	bg = "#EFD4B1",
+	bg1 = "#E1944C",
+	bg_popup = "#E5C198",
+	bg_highlight = "#E5C198",
+	bg_cursorline = "#E5C69F",
 	-- bg_visual = '#2c6656';
-	bg_visual = "#332F36",
+	bg_visual = "#F4B854",
 
-	-- fg = '#e0cb70';
-	fg = "#D5BE9F",
-	-- fg = "#7DC2B0",
+	fg = "#4B2334",
 	fg_alt = "#ebdbb2",
 
 	red = "#af3a1f",
-	-- fg = '#DAB1B6',
 	redwine = "#722132",
 	orange = "#AA6736",
 	yellow = "#ECB457",
 
-	-- orange = '#F6955B',
-	-- yellow = '#D7A65F',
-
-	-- light_green = '#447A4B';
 	green = "#689d6a",
 	light_green = "#60A453",
 	dark_green = "#98be65",
@@ -52,10 +42,10 @@ local darkforest = {
 
 	bracket = "#d88913",
 	currsor_bg = "#4f5b66",
-	sidebar_bg = "#0E0D0D",
-	buf_sel = "#2C2B2B",
-	buf_vis = "#1C1B1B",
-	statusline = "#302E32",
+	sidebar_bg = "#E8C495",
+	buf_sel = "#E3B981",
+	buf_vis = "#E5C69F",
+	statusline = "#E5C69F",
 	none = "NONE",
 }
 
@@ -90,7 +80,6 @@ end
 function darkforest.load_syntax()
 	local syntax = {
 		Normal = { fg = darkforest.fg, bg = darkforest.bg }, -- also changes buffer fill
-		Term = { fg = darkforest.cyan, bg = darkforest.magenta }, -- also changes buffer fill
 		Terminal = { fg = darkforest.fg, bg = darkforest.bg },
 		SignColumn = { fg = darkforest.fg, bg = darkforest.none },
 		FoldColumn = { fg = darkforest.fg_alt, bg = darkforest.black },
@@ -118,7 +107,7 @@ function darkforest.load_syntax()
 		ErrorMsg = { fg = darkforest.red, bg = darkforest.none, style = "bold" },
 		WarningMsg = { fg = darkforest.yellow, bg = darkforest.none, style = "bold" },
 		ModeMsg = { fg = darkforest.fg, bg = darkforest.none, style = "bold" },
-		MatchParen = { style = "bold", bg = darkforest.base4, fg = darkforest.yellow },
+		MatchParen = { style = "bold", bg = darkforest.base4, fg = darkforest.none },
 		NonText = { fg = darkforest.bg1 },
 		Whitespace = { fg = darkforest.base4 },
 		SpecialKey = { fg = darkforest.bg1 },
@@ -185,7 +174,7 @@ function darkforest.load_syntax()
 
 		Comment = { fg = darkforest.base5, style = "italic" },
 		SpecialComment = { fg = darkforest.grey },
-		Todo = { fg = darkforest.orange, bg=darkforest.black, style="bold" },
+		Todo = { fg = darkforest.orange, bg=darkforest.yellow, style="bold" },
 		Delimiter = { fg = darkforest.fg },
 		Ignore = { fg = darkforest.grey },
 		Underlined = { fg = darkforest.none, style = "underline" },
@@ -285,7 +274,7 @@ function darkforest.load_plugin_syntax()
 		NvimTreeSpecialFile = { fg = darkforest.green, bg = darkforest.none, style = "NONE" },
 		NvimTreeFolderIcon = { fg = darkforest.blue },
 
-		TelescopeBorder = { fg = darkforest.magenta },
+		TelescopeBorder = { fg = darkforest.magenta , style="bold"},
 		TelescopePromptBorder = { fg = darkforest.red },
 		TelescopeMatching = { fg = darkforest.teal },
 		TelescopeSelection = { fg = darkforest.violet, bg = darkforest.bg_highlight, style = "bold" },
@@ -300,8 +289,8 @@ function darkforest.load_plugin_syntax()
 		texCmdEnv = { fg = darkforest.red, style = "bold" },
 		texMathCmd = { fg = darkforest.violet },
 		texCmdRef = { fg = darkforest.green, style = "bold" },
-		texPartArgTitle = { fg = darkforest.green, style = "bold" },
 		texCmdPart = { fg = darkforest.red, style = "bold" },
+		texPartArgTitle = { fg = darkforest.green, style = "bold" },
 		texMathEnvArgName = { fg = darkforest.green },
 	}
 	return plugin_syntax
