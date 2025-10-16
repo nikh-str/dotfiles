@@ -1,0 +1,528 @@
+@define-color color_border #000000;
+@define-color color_border_active #6E1111;
+/* @define-color color_bg #000000; */
+@define-color color_text #2B7346;
+@define-color bg rgba(0,0,0,0.7);
+@define-color shadow rgba(129, 4, 97, 0.6);
+
+* {
+    font-family: Hack Nerd Font, sans-serif;
+    font-size: 9px;
+    font-weight: 900;
+    border: none;
+    border-radius: 0;
+    text-shadow: none;
+    margin-bottom: 0px;
+    padding: 0px 2px 0px 0px;
+}
+
+
+box, menubar, button {
+    /* background-color: @color_bg; */
+    box-shadow: none;
+    /* margin-top: 20px; */
+    /* margin-bottom:  30px; */
+}
+
+
+/* button, label { */
+    /* color: @color_text; */
+/* } */
+
+button:hover {
+    background-color: @color_bg_dark;
+}
+
+scale trough {
+    min-width: 1px;
+    min-height: 2px;
+}
+
+.container {
+    font-family: Hack Nerd Font;
+    /*  font-family: CaskaydiaCove Nerd Font; */
+    /*  font-weight: bold; */
+    font-size: 10px;
+    margin-bottom: -20px;
+    margin-top: -5px;
+}
+
+
+
+.background {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.wlogout {
+    padding: 0px 5px 0px 5px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: #ff757f;
+    background: @bg;
+    opacity: 1;
+    box-shadow: inset @shadow 2px 2px 5px 2px;
+    border-bottom: 1px solid red;
+}
+.wlogout:hover {
+    color: #7dcfff;
+    background: #0D0E0E;
+    border-radius: 10px;
+    min-width: 40px;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.sysinfo .item{
+    border-radius: 0 0 .4em .4em;
+    background-color: @bg;
+    padding-left:4px;
+    padding-right:4px;
+    padding-top: 5px;
+}
+
+.sysinfo .item:nth-child(1) {
+    padding: 0px 10px;
+border-bottom: 1px solid red;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 0px;
+    border-radius: 10px;
+    color: #ff9e64;
+    background: @bg;
+    opacity: 1;
+    box-shadow: inset @shadow 2px 2px 5px 2px;
+}
+/* memory */
+.sysinfo .item:nth-child(2) {
+    padding: 0px 10px;
+border-bottom: 1px solid red;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 0px;
+    border-radius: 10px;
+    color: #7dcfff;
+    background: @bg;
+    opacity: 1;
+    box-shadow: inset @shadow 2px 2px 5px 2px;
+}
+/* temp */
+.sysinfo .item:nth-child(3) {
+    padding: 0px 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 0px;
+border-bottom: 1px solid red;
+    border-radius: 10px;
+    color: #bb9af7;
+    background: @bg;
+    opacity: 1;
+    box-shadow: inset @shadow 2px 2px 5px 2px;
+}
+/* disk */
+.sysinfo .item:nth-child(4) {
+    padding: 0px 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 0px;
+    border-radius: 10px;
+border-bottom: 1px solid red;
+    color: #4F5A5A;
+    background: @bg;
+    opacity: 1;
+    box-shadow: inset @shadow 2px 2px 5px 2px;
+}
+
+.pacman {
+    padding: 0px 5px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 0px;
+    border-radius: 8px;
+    color: #2460AF;
+    border-bottom: 1px solid red;
+    background: @bg;
+    opacity: 1;
+    box-shadow: inset @shadow 2px 2px 5px 0px;
+}
+.volume {
+    padding: 0px 5px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 0px;
+    border-radius: 10px;
+    box-shadow: inset @shadow 2px 2px 5px 2px;
+    color: #8491EA;
+    background: @bg;
+    opacity: 1;
+    border-bottom: 1px solid red;
+}
+
+.popup-volume {
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
+    color: #37383E;
+    /* background: #1a1b26; */
+    background-color: rgba(0, 0, 0, 1);
+    border: 2px solid #bb9af7;
+}
+
+/* .weather, */
+
+.keyboard {
+    padding: 0px 5px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 5px;
+    border-radius: 10px;
+    color: #B462B6;
+    background: @bg;
+    opacity: 1;
+    box-shadow: inset @shadow 2px 2px 5px 2px;
+border-bottom: 1px solid red;
+}
+.keyboard .layout{
+    color: #B14BB4;
+    background: none;
+}
+
+
+.clipboard {
+    opacity: 1;
+    margin-left: 0px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    padding-bottom: 0px;
+    padding-bottom: 0px;
+    background: @bg; 
+    box-shadow: @shadow 2px 2px 5px 2px;
+    border-bottom: 1px solid red;
+}
+
+/* Clipboard Button */
+.clipboard .btn {
+  background: @bg; 
+  color: #5A2D3F;
+  padding: 8px 10px;
+  border-radius: 5px;
+  opacity: 1;
+}
+
+.clipboard .btn .image {
+background: @bg;
+opacity: 1;
+}
+
+/* .battery { */
+/* background-color: black; */
+/* border: 1px #101010; */
+/* border: 1px; */
+/* margin-top: 20px; */
+/* box-shadow: 0 0 10px rgba(10, 20, 10, 0.6); */
+/* } */
+
+.battery .contents{
+  background-color: @bg;
+  border: 1px #101010;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(10, 20, 10, 0.6);
+  border-color: #000000;
+  color: #5E305B;
+}
+
+
+.popup-clipboard {
+  background-color: #162118;
+  border: 1px #101010;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(10, 20, 10, 0.6);
+  border-color: #000000;
+  color: #5E305B;
+}
+
+.popup-clipboard .item .btn {
+  background-color: #000000;
+  opacity: 1;
+  color: #990F6E;
+  border: 1px solid #39647C;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 10px;
+}
+
+
+.clock {
+    font-family: Hack Nerd Font;
+    border-bottom: 1px solid red;
+    margin-top: 20px;
+    margin-bottom:  40px;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 8px;
+    margin-left: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 0px;
+    border-radius: 5px;
+    color: #6AD78E;
+    background: @bg; 
+    opacity: 1;
+    box-shadow: inset @shadow 2px 2px 5px 2px;
+}
+
+.clock_date {
+    color: rgb(94, 129, 172);
+}
+
+.popup-clock {
+    font-weight: bold;
+    background-color: rgba(26, 27, 38, 0.8);
+    border-radius: 10px;
+    border: 2px #bb9af7;
+}
+
+.popup-clock .calendar-clock {
+    color: #8D1414;
+    background-color: @bg;
+    /*  font-size: 2.5em; */
+    padding-bottom: 0.1em;
+}
+
+.popup-clock .calendar {
+    background-color: rgba(0, 0, 0, 1);
+    color: #c0caf5;
+    border-radius: 10px;
+}
+
+.popup-clock .calendar .header {
+    padding-top: 1em;
+    background-color: black;
+    border-top: 1px solid black;
+    font-size: 1.5em;
+}
+
+.popup-clock .calendar:selected {
+    background-color: #4F0E66;
+}
+
+.focused {
+    padding: 0px 0px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 8px;
+    margin-left: 8px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0) 2px 2px 5px 2px;
+    color: #6FE78D;
+    background: transparent;
+    opacity: 1;
+    /* top right bottom left */
+    border-bottom: 1px solid red;
+}
+
+.clipboard {
+    padding: 0px 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 8px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.288) 2px 2px 5px 2px;
+    color: #9abdf5;
+    background: #1a1b26;
+    opacity: 0.8;
+}
+
+.popup-clipboard {
+    margin-left: 5px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    color: #c0caf5;
+    background: #1a1b26;
+    background-color: rgba(26, 27, 38, 0.8);
+    border: 2px solid #bb9af7;
+    box-shadow: rgba(0, 0, 0, 0.288) 2px 2px 5px 2px;
+}
+
+.work1,
+.work2,
+.work3,
+.work4,
+.work5,
+.work6,
+.work7,
+.work8,
+.work9 {
+    padding: 0px 5px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 3px;
+    border-radius: 10px;
+    color: #B55591;
+    opacity: 0.8;
+    background: #1a1b26;
+    box-shadow: inset rgba(0, 0, 0, 1) 2px 2px 5px 2px;
+}
+
+
+
+.work1:hover,
+.work2:hover,
+.work3:hover,
+.work4:hover,
+.work5:hover,
+.work6:hover,
+.work7:hover,
+.work8:hover,
+.work9:hover {
+    color: #c3e88d;
+    background: #000000;
+    border-radius: 10px;
+    min-width: 40px;
+    transition: all 0.3s ease-in-out;
+    opacity: 0.8;
+}
+
+.script {
+    padding: 0px 10px 0px 10px;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    margin-right: 8px;
+    margin-left: 8px;
+    border-radius: 10px;
+    color: #9abdf5;
+    background: #1a1b26;
+    opacity: 0.8;
+    box-shadow: rgba(0, 0, 0, 0.288) 2px 2px 5px 2px;
+}
+
+.script:hover {
+    color: #7dcfff;
+    background: #1a1b26;
+    border-radius: 10px;
+    min-width: 40px;
+    transition: all 0.3s ease-in-out;
+    opacity: 0.8;
+}
+
+
+
+.tray {
+border-radius: 10px;
+    padding: 0px 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 7px;
+border-bottom: 1px solid red;
+    margin-left: 10px;
+    color: #bb9af7;
+    background: @bg;
+    opacity: 1;
+    box-shadow: inset @shadow 2px 2px 5px 2px;
+}
+
+.music {
+    border-radius: 5px;
+    padding: 0px 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 7px;
+    margin-left: 10px;
+    color: #bb9af7;
+    background: black;
+    opacity: 1;
+    box-shadow: inset @shadow 2px 2px 5px 2px;
+    border-bottom: 1px solid red;
+}
+.popup-music {
+    margin-left: 5px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    color: black;
+    background: black;
+    border: 1px solid red;
+    box-shadow: inset @shadow 2px 2px 5px 2px;
+}
+
+.popup-music.volume {
+}
+.popup-music .volume .slider {
+    padding: 2px 2px 2px 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.popup-music .volume .icon {
+}
+
+tooltip.background {
+    background-color: rgba(00, 00, 00, 0.5);
+    font-size: 18px;
+    border-radius: 10px;
+    color: #fdfdfd;
+}
+
+tooltip * {
+    padding: 4px;
+    background-color: transparent;
+    color: white;
+}
+
+.host tooltip {
+    background-color: rgba(255, 00, 00, 0.5);
+}
+
+.workspaces {
+    background: @bg;
+    padding: 0px 5px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-style: normal;
+    opacity: 1;
+    font-size: 16px;
+    color: #5F68C6;
+    box-shadow: inset @shadow 2px 2px 5px 2px;
+border-bottom: 1px solid red;
+}
+
+.workspaces button {
+    padding: 1px 1px;
+    margin: 0px 1px;
+    border-radius: 5px;
+    border: 0px;
+    color: #00981F;
+    border-color: #000000;
+    background: none;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.workspaces .item.focused {
+    color: #AF0F0F;
+    background: black;
+    border-radius: 0px;
+    min-width: 20px;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    border-bottom: 1px solid orange;
+}
+
+.workspaces button:hover {
+    color: #000000;
+    background: #D70F0F;
+    border-radius: 5px;
+    min-width: 20px;
+    opacity: 1;
+}
+

@@ -121,6 +121,8 @@ function darkforest.load_syntax()
 		MatchParen = { style = "bold", bg = darkforest.base4, fg = darkforest.yellow },
 		NonText = { fg = darkforest.bg1 },
 		Whitespace = { fg = darkforest.base4 },
+        WhichKeyFloat = {fg = darkforest.black},
+        WhichKeyBorder = {fg = darkforest.cyan},
 		SpecialKey = { fg = darkforest.bg1 },
 		Pmenu = { fg = darkforest.fg, bg = darkforest.bg_popup },
 		PmenuSel = { fg = darkforest.base0, bg = darkforest.blue },

@@ -50,6 +50,15 @@ return {
     --         },
     --     },
     -- },
+{
+  "lervag/vimtex",
+  lazy = false,     -- we don't want to lazy load VimTeX
+  -- tag = "v2.15", -- uncomment to pin to a specific release
+  init = function()
+    -- VimTeX configuration goes here, e.g.
+    vim.g.vimtex_view_method = "zathura"
+  end
+},
 
   -- Status Line
   {
@@ -61,6 +70,7 @@ return {
 {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
 
 
+  {'SirVer/ultisnips'},
   { "kevinhwang91/rnvimr" },
   { "norcalli/nvim-colorizer.lua" },
   {
@@ -79,21 +89,8 @@ return {
   -- which-key
     {
       "folke/which-key.nvim",
+  dependencies = { 'echasnovski/mini.icons', "nvim-tree/nvim-web-devicons"},
       event = "VeryLazy",
-      opts = {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      },
-      keys = {
-        {
-          "<leader>?",
-          function()
-            require("which-key").show({ global = false })
-          end,
-          desc = "Buffer Local Keymaps (which-key)",
-        },
-      },
     },
 
   -- Surround

@@ -1,0 +1,190 @@
+let {
+    $tray = { 
+        type = "tray"
+        // direction = "top_to_bottom"
+        }
+
+  $clock = {
+    type = "clock"
+    format = " %B %d  %H:%M"
+   // format = "%d/%m/%Y %H:%M"
+  }
+
+    $clipboard =  { 
+        type = "clipboard" 
+        max_items = 3 
+        truncate.mode = "end" 
+        truncate.length = 50 
+        icon_size = 12
+    } 
+
+    $focused = {
+      type = "focused"
+      show_icon = false
+      show_title = true
+      icon_size = 16
+      icon_theme = "Papirus"
+
+      truncate.mode = "end"
+      truncate.max_length = 20
+    }
+
+    $music = {
+      type = "music"
+      player_type = "mpd"
+      format = "{artist}"
+      truncate = "end"
+      // truncate.length = 30
+      // truncate.max_length = 100
+      icons.play = " "
+      icons.pause = " "
+      icons.prev = ""
+      icons.next = ""
+      music_dir = "/home/niqi/Music"
+    }
+
+  $SysInfo = {
+      type = "sys_info"
+      interval.temps = 3
+      interval.disks = 300
+      interval.memory = 30
+      interval.cpu = 1
+      interval.networks = 3
+
+  format = [
+      " {cpu_percent}%"
+      " {memory_percent}%"
+      " {temp_c:coretemp-Package-id-0}°C"
+      " {disk_free:/}GB"
+     ]
+   }
+
+    $cava = {
+        transition_type = "slide_end"
+        transition_duration = 750
+        name = "cava"
+        type = "script"
+        mode = "watch"
+        cmd = "/home/bluebyt/.config/ironbar/scripts/cava"
+   }
+    $volume = {
+      type = "volume"
+      format = "{icon} {percentage}%"
+      max_volume = 100
+      icons.volume_high = " "
+      icons.volume_medium = " "
+      icons.volume_low = " "
+      icons.muted = "󰝟 "
+      on_scroll_down = "wpctl set-volume @DEFAULT_SINK@ 2%-"
+      on_scroll_up = "wpctl set-volume @DEFAULT_SINK@ 2%+"
+      tooltip = "{{/home/bluebyt/.config/ironbar/scripts/volume}}%"
+    }
+
+    $workspace = {
+        type = "workspaces"
+        on_scroll_up = "hyprctl dispatch workspace -1"
+        on_scroll_down = "hyprctl dispatch workspace +1"
+        name_map.1 = ""
+        name_map.2 = ""
+        name_map.3 = ""
+        name_map.4 = ""
+        name_map.5 = ""
+        name_map.6 = "龎"
+        name_map.7 = ""
+        favorites = [ "1" "2" "3" ]
+        hidden = ["special:scratchterm" "special:vault" "special:files"]
+    }
+
+    $wlogout = {
+        type = "custom"
+        bar = [
+            {
+                type = "button"
+                name = "wlogout"
+                class = "wlogout"
+                label = ""
+                on_click = "!~/.config/ironbar/scripts/wlogout"
+            }
+        ]
+    }
+
+
+
+
+    $pacman = {
+        type = "custom"
+        bar = [
+            {
+                type = "label"
+                name = "pacman"
+                class = "pacman"
+                label = " {{600000:checkupdates | wc -l}}"
+                }
+        ]
+    }
+
+    $weather = {
+        name = "weather"
+        type = "script"
+        mode = "poll"
+        interval = 600000
+        cmd = "~/.config/ironbar/scripts/weather"
+   }
+      $workspace_monitor = {
+         type = "custom"
+         bar = [
+            {
+                type = "label"
+                name = "workspace_monitor"
+                class = "workspace_monitor"
+                label = "{{watch:2000:~/.config/ipc-scripts/workspace_monitor_ironbar.sh}}"
+            }
+        ]
+    }
+
+       $keyboard = {
+        type = "keyboard"
+        icon_size= 16
+        show_scroll = false 
+        show_caps = false
+        show_layout = true
+        icons.layout_map.Greek = "gr"
+        icons.layout_map.'English (US)' = "en"
+}
+
+$battery = {
+      type = "battery"
+      format = "{percentage}%"
+      thresholds.warning = 20
+      thresholds.critical = 5
+}
+
+
+  $zscroll = {
+      type = "custom"
+       bar = [
+          {
+               type = "label"
+               name = "zscroll"
+               class = "zscroll"
+               label = "{{watch:2000:~/.config/scripts/zscroll.sh}}"
+               on_click_left = "mpc toggle"
+               on_scroll_down = "mpc next"
+               on_scroll_up = "mpc prev"
+           }
+       ]
+   }
+   
+    $start = [ $workspace $focused  $music ]
+    $center = [ $clock ]
+    $end = [  $volume $keyboard $pacman $SysInfo $tray $wlogout ]
+}
+in {
+        icon_theme = "Papirus"
+        position = "top"
+        height=10
+        start = $start
+        popup_autohide = true
+        center = $center
+        end = $end
+}

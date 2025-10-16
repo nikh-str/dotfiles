@@ -34,6 +34,9 @@ autocmd BufRead,BufNewFile *.md setlocal spell!  ]])
 -- augroup END
 -- ]])
 
+vim.g.maplocalleader = ","
+vim.g.mapleader = " "
+
 opt.ruler = false
 opt.ignorecase = true
 opt.splitbelow = true

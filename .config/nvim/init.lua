@@ -39,3 +39,6 @@ require("lsp.python-ls")
 require("lsp.vim-ls")
 require("lsp.null-ls")
 require("lsp.latex-ls")
+require('vimnotes').setup({
+    notes_dir = '~/Documents/vimnotes', -- Optional: Customize the directory
+})
