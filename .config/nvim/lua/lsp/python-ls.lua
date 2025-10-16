@@ -1,2 +1,4 @@
 -- npm i -g pyright
-require'lspconfig'.pyright.setup{}
+-- require'lspconfig'.pyright.setup{}
+vim.lsp.enable('pyright')
+

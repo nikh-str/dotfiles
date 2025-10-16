@@ -133,7 +133,7 @@ function darkforest.load_syntax()
 		Question = { fg = darkforest.yellow },
 		NormalFloat = { fg = darkforest.base8, bg = darkforest.bg_highlight },
 		FloatBorder = { fg = darkforest.cyan, bg = darkforest.none },
-		TabLineFill = { bg = darkforest.base5 },
+		TabLineFill = { bg = darkforest.bg },
 		TabLineSel = { style = "bold", bg = darkforest.buf_bg, fg = darkforest.violet },
 		SepVisible = { fg = darkforest.cyan },
 		BufSep = { fg = darkforest.red, bg = darkforest.buf_sel },

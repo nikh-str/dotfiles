@@ -1,3 +1,4 @@
 -- npm install -g vim-language-server
-require'lspconfig'.vimls.setup{}
+-- require'vim.lsp.config'.vimls.setup{}
+vim.lsp.enable('vimls')
 

@@ -1,15 +1,16 @@
---   /\-/\
+--   /\-/r
 --  /a a  \                                 _
 -- =\ Y  =/-~~~~~~-,_______________________/ )
 ---   '^--'          ________________________/
 --     \           / my nvim config
 --     ||  |---'\  \
 --    (_(__|   ((__|
+
 require("config.lazy")
 require("globals")
 require("opts")
 require("mappings")
-require("plugins")
+-- require("plugins")
 require("nv-telescope")
 require("nv-lualine")
 -- require("nv-treesitter")
@@ -27,12 +28,11 @@ require("nv-indentline")
 -- require("nv-vimwiki")
 require("nv-dashboard")
 require("nv-toggleterm")
--- require("nv-gitsigns")
+require("nv-gitsigns")
 require("nv-neoclip")
 -- LSP
 require("lsp")
--- require("lsp.lua-ls")
-require'lspconfig'.lua_ls.setup{}
+require("lsp.lua-ls")
 require("lsp.bash-ls")
 require("lsp.julia-ls")
 require("lsp.python-ls")

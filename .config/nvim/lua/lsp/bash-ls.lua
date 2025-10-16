@@ -1,2 +1,3 @@
 -- npm i -g bash-language-server
-require'lspconfig'.bashls.setup{}
+vim.lsp.enable('bashls')
+-- require'vim.lsp.config'.bashls.setup{}

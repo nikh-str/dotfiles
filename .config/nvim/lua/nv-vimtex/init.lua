@@ -1,5 +1,5 @@
 vim.g.vimtex_compiler_programme = "nvr"
-vim.g.vimtex_view_method = "sioyek"
+vim.g.vimtex_view_method = "zathura"
 -- vim.g.vimtex_quickfix_ignore_filters = "Underfull"
 -- vim.g.vimtex_view_method = "mupdf"
 -- vim.g.vimtex_view_general_viewer = "evince"
@@ -22,7 +22,7 @@ vim.g.vimtex_view_method = "sioyek"
 --         \}
 --         ]])
 
-vim.g.latex_view_general_method = "sioyek"
+vim.g.latex_view_general_method = "zathura"
 vim.g.vimtex_fold_enabled = 1
 vim.g.vimtex_quickfix_open_on_warning = 0
 vim.g.tex_conceal = "abdmgs"

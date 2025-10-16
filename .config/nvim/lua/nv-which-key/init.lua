@@ -65,8 +65,8 @@ local defaults = {
         zindex = 1000,
         -- Additional vim.wo and vim.bo options
         bo = {10},
-        wo = {10
-          -- winblend = 10, -- value between 0-100 0 for fully opaque and 100 for fully transparent
+        wo = {10,
+          winblend = 10, -- value between 0-100 0 for fully opaque and 100 for fully transparent
         },
       },
       layout = {
@@ -266,7 +266,7 @@ wk.add({
     { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch", nowait = false, remap = false },
     { "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Checkout commit", nowait = false, remap = false },
     { "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", desc = "Diff", nowait = false, remap = false },
-    { "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", desc = "Lazygit", nowait = false, remap = false },
+    { "<leader>gg", "<cmd>LazyGit<CR>", desc = "Lazygit", nowait = false, remap = false },
     { "<leader>gj", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", desc = "Next Hunk", nowait = false, remap = false },
     { "<leader>gk", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", desc = "Prev Hunk", nowait = false, remap = false },
     { "<leader>gl", "<cmd>lua require 'gitsigns'.blame_line()<cr>", desc = "Blame", nowait = false, remap = false },
@@ -279,7 +279,8 @@ wk.add({
     { "<leader>t", group = "Toggle", nowait = false, remap = false },
     { "<leader>tr", "<cmd>call Toggle_relativenumbers()<cr>", desc = "Relative numbers", nowait = false, remap = false },
     { "<leader>ts", "<cmd>setlocal spell! spelllang=en,el<CR>", desc = "Spelling", nowait = false, remap = false },
-    { "<leader>tt", "<cmd>SymbolsOutline<cr>", desc = "Document Tags", nowait = false, remap = false },
+    { "<leader>tT", "<cmd>SymbolsOutline<cr>", desc = "Document Tags", nowait = false, remap = false },
+    { "<leader>tt", "<cmd>TransparentToggle<cr>", desc = "Transparency", nowait = false, remap = false },
     { "<leader>tz", "<cmd>ZenMode<CR>", desc = "Zen", nowait = false, remap = false },
 
 

@@ -1,6 +1,19 @@
 return {
   -- lazy.nvim itself
   { "folke/lazy.nvim", lazy = false },
+  {'vimwiki/vimwiki',
+  init = function()
+    vim.g.vimwiki_list = {
+      {
+        path = vim.fn.expand("~/Documents/vimwiki/"),
+        syntax = 'markdown',
+        ext = '.md'
+      }
+    }
+    vim.g.vimwiki_folding = 'list'
+  end
+ },
+
 
   -- Packer-managed itself
   -- { "wbthomason/packer.nvim", lazy = false },
@@ -13,6 +26,29 @@ return {
         }
     },
 
+  {'xiyaowong/transparent.nvim'},
+
+    {"lewis6991/gitsigns.nvim"},
+    {
+    "kdheepak/lazygit.nvim",
+    lazy = true,
+    cmd = {
+        "LazyGit",
+        "LazyGitConfig",
+        "LazyGitCurrentFile",
+        "LazyGitFilter",
+        "LazyGitFilterCurrentFile",
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+        { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+    }
+},
 -- {
     -- TODO fix
     -- "nvim-neorg/neorg",
@@ -69,6 +105,26 @@ return {
   -- Buffer Bar
 {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
 
+{'neoclide/coc.nvim', branch='release' },
+
+{'nvimdev/lspsaga.nvim',
+    config = function()
+        require('lspsaga').setup({})
+    end,
+    dependencies = {
+        'nvim-treesitter/nvim-treesitter', -- optional
+        'nvim-tree/nvim-web-devicons',     -- optional
+    }
+},
+--
+{"ziontee113/color-picker.nvim",
+    config = function()
+        require("color-picker")
+    end,
+},
+
+
+{'KabbAmine/vCoolor.vim'},
 
   {'SirVer/ultisnips'},
   { "kevinhwang91/rnvimr" },
@@ -84,7 +140,12 @@ return {
     require('neoclip').setup()
   end,
 },
-{"jose-elias-alvarez/null-ls.nvim"}, -- for formatters and linters
+-- {"jose-elias-alvarez/null-ls.nvim"}, -- for formatters and linters
+{"nvimtools/none-ls.nvim",
+ dependencies = {
+      "nvimtools/none-ls-extras.nvim",
+    },
+},
 
   -- which-key
     {

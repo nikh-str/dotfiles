@@ -1,2 +1,2 @@
-require'lspconfig'.cssls.setup{}
+require'vim.lsp.config'.cssls.setup{}
 
