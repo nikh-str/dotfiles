@@ -1,0 +1,43 @@
+#!/bin/bash
+
+
+DMBROWSER="luakit"
+declare -A options
+options[archwiki]="https://wiki.archlinux.org/index.php?search="
+options[duckduckgo]="https://duckduckgo.com/?q="
+options[etymoline]="https://www.etymonline.com/search?q="
+options[github]="https://github.com/search?q="
+options[googleimages]="https://www.google.com/search?hl=en&tbm=isch&q="
+options[imdb]="https://www.imdb.com/find?q="
+options[reddit]="https://www.reddit.com/search/?q="
+options[startpage]="https://www.startpage.com/do/dsearch?query="
+options[thesaurus]="https://www.thesaurus.com/misspelling?term="
+options[translate-google]="https://translate.google.com/?sl=auto&tl=en&text="
+options[word-reference]="https://www.wordreference.com/redirect/translation.aspx?dict=engr&w="
+options[urban]="https://www.urbandictionary.com/define.php?term="
+options[webster]="https://www.merriam-webster.com/dictionary/"
+options[wikipedia]="https://en.wikipedia.org/wiki/"
+options[wiktionary]="https://en.wiktionary.org/wiki/"
+options[wolfram]="https://www.wolframalpha.com/input/?i="
+options[youtube]="https://yewtu.be/search?q="
+options[word-reference]="https://www.wordreference.com/engr/"
+
+ Picking a search engine.
+ while [ -z "$engine" ]; do
+     engine=$(printf '%s\n' "${!options[@]}" | sort | fuzzel -d -p 'Choose search engine:') "$@" || exit
+     url=$(echo "${options["${engine}"]}") || exit
+ done
+
+
+
+# Open in default browser
+# $DMBROWSER "$SEARCH_URL" 
+#
+#
+# # Searching the chosen engine.
+ while [ -z "$query" ]; do
+     query=$(echo "" | fuzzel -d -p 'Enter search query:') "$@" || exit
+ done
+#
+# # Display search results in web browser
+$DMBROWSER "$url""$query"
